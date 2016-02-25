@@ -91,5 +91,9 @@
         <item>Żółty ser (starty)</item>
     </string-array>
     <string name="version">Wersja 1</string>
-    <string name="me">Autorem jest Amadeusz Lisiecki, student Politechniki Wrocławskiej na kierunku Informatyka.</string>
+    <string name="me">Autorem jest Amadeusz Lisiecki, student Politechniki Wrocławskiej na kierunku Informatyka (Wydział Informatyki i Zarządzania). </string>
+    <string name="project">Projekt stanowi pracę inżynierską. Promotorem jest doc. dr inż. Krzysztof Waśko.</string>
+    <string name="date">Data ukończenia aplikacji: 13.5.2016.</string>
+    <string name="contact">Chcesz mi przesłać przepis, pochwalić aplikację, nawiązać współpracę? Skontaktuj się ze mną!</string>
+    <string name="email_icon">Ikona poczty email</string>
 </resources>
