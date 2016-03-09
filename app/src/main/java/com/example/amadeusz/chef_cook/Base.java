@@ -67,11 +67,11 @@ public class Base {
         return sum;
     }
 
-    public static void addStep(Step[] added) {
+    public static void addStep(String[] added) {
         Collections.addAll(Arrays.asList(added));
     }
 
-    public static void match(String receptureName, Step[] steps) {
+    public static void match(String receptureName, String[] steps) {
         for(int i = 0; i < receptures.size(); i++) {
             if(receptures.get(i).getName().equals(receptureName)) {
                 receptures.get(i).setSteps(steps);
@@ -79,7 +79,7 @@ public class Base {
         }
     }
 
-    public static Step[] getStepsForRecepture(String receptureName) {
+    public static String[] getStepsForRecepture(String receptureName) {
         for(int i = 0; i < receptures.size(); i++) {
             if(receptures.get(i).getName().equals(receptureName)) {
                 return receptures.get(i).getSteps();

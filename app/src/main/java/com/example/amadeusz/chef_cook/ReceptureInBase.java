@@ -10,17 +10,17 @@ public class ReceptureInBase {
     private ArrayList<Multimedia> multimedia;
     private ReceptureDetails details;
     private Row category;
-    private Step[] steps;
+    private String[] steps;
 
     public ReceptureInBase(String name, int mainPhoto, ArrayList<Ingredient> ingredients, ArrayList<Multimedia> multimedia,
-                           ReceptureDetails details, Row category, Step[] steps) {
+                           ReceptureDetails details, Row category, String[] steps) {
         this.name = name;
         this.mainPhoto = mainPhoto;
         this.ingredients = (ingredients == null ? new ArrayList<Ingredient>() : ingredients);
         this.multimedia = (multimedia == null ? new ArrayList<Multimedia>() : multimedia);
         this.details = details;
         this.category = category;
-        this.steps = (steps == null ? new Step[4] : steps);
+        this.steps = (steps == null ? new String[4] : steps);
     }
 
     public void addIngredient(Ingredient added, ArrayList<Ingredient> substituties) {
@@ -39,11 +39,11 @@ public class ReceptureInBase {
         return ingredients;
     }
 
-    public void setSteps(Step[] added){
+    public void setSteps(String[] added){
         steps = added;
     }
 
-    public Step[] getSteps() {
+    public String[] getSteps() {
         return steps;
     }
 

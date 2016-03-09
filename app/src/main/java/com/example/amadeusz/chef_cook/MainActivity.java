@@ -266,28 +266,11 @@ public class MainActivity extends AppCompatActivity
         Base.match("Muszle z łososiem", saltAndPepper);
         Base.match("Muszle z łososiem", chopChives);
 
-        Step[] nuddleSalmonSteps = new Step[]{
-                new Step(
-                        R.drawable.salmo_nuddle1,
-                        "Muszle ugotować w osolonym wrzątku al dente, przecedzić, przelać zimną wodą i wyłożyć na talerz.",
-                        1
-                ),
-                new Step(
-                        R.drawable.salmo_nuddle2,
-                        "W misce zmieszać ze sobą serek śmietankowy, pokrojonego łososia i jajka starte na tarce o małych oczkach.",
-                        2
-                ),
-                new Step(
-                        R.drawable.salmo_nuddle3,
-                        "Doprawić pastę majonezem, musztardą sokiem z cytryny oraz solą i pieprzem. Ugotowane, ostudzone muszle" +
-                                " nadziewać pastą.",
-                        3
-                ),
-                new Step(
-                        R.drawable.salmo_nuddle4,
-                        "Ułożyć na talerz i posypać szczypiorkiem. Podawać jako przystawkę na zimno na wszelkich przyjęciach.",
-                        4
-                )
+        String[] nuddleSalmonSteps = new String[]{
+                "Muszle ugotować w osolonym wrzątku al dente, przecedzić, przelać zimną wodą i wyłożyć na talerz.",
+                "W misce zmieszać ze sobą serek śmietankowy, pokrojonego łososia i jajka starte na tarce o małych oczkach.",
+                "Doprawić pastę majonezem, musztardą sokiem z cytryny oraz solą i pieprzem. Ugotowane, ostudzone muszle nadziewać pastą.",
+                "Ułożyć na talerz i posypać szczypiorkiem. Podawać jako przystawkę na zimno na wszelkich przyjęciach."
         };
         Base.addStep(nuddleSalmonSteps);
         Base.match("Muszle z łososiem", nuddleSalmonSteps);

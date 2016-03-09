@@ -1,6 +1,9 @@
 package com.example.amadeusz.chef_cook;
 
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -9,6 +12,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.method.ScrollingMovementMethod;
+import android.util.Base64;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -17,7 +21,23 @@ import android.view.animation.Animation;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class RecipeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -26,6 +46,10 @@ public class RecipeActivity extends AppCompatActivity implements NavigationView.
     private RadioButton[] dots;
     private TextView stepText;
     private TextView dishName;
+    private ImageView step1image;
+    private ImageView step2image;
+    private ImageView step3image;
+    private ImageView step4image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,19 +72,19 @@ public class RecipeActivity extends AppCompatActivity implements NavigationView.
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_recipe);
         navigationView.setNavigationItemSelectedListener(this);
         swapSteps = (ViewFlipper)findViewById(R.id.steps);
-        final Step[] steps = Base.getStepsForRecepture(dishText);
-        ImageView step1image = (ImageView)findViewById(R.id.step1image);
-        ImageView step2image = (ImageView)findViewById(R.id.step2image);
-        ImageView step3image = (ImageView)findViewById(R.id.step3image);
-        ImageView step4image = (ImageView)findViewById(R.id.step4image);
+        final String[] steps = Base.getStepsForRecepture(dishText);
+        step1image = (ImageView)findViewById(R.id.step1image);
+        step2image = (ImageView)findViewById(R.id.step2image);
+        step3image = (ImageView)findViewById(R.id.step3image);
+        step4image = (ImageView)findViewById(R.id.step4image);
         stepText = (TextView)findViewById(R.id.step_text);
         stepText.setMovementMethod(new ScrollingMovementMethod());
         if(steps != null) {
-            step1image.setImageResource(steps[0].getPhotoId());
-            step2image.setImageResource(steps[3].getPhotoId());
-            step3image.setImageResource(steps[2].getPhotoId());
-            step4image.setImageResource(steps[1].getPhotoId());
-            stepText.setText(steps[0].getDescription());
+            step1image.setImageResource(R.drawable.no_internet);
+            step2image.setImageResource(R.drawable.no_internet);
+            step3image.setImageResource(R.drawable.no_internet);
+            step4image.setImageResource(R.drawable.no_internet);
+            stepText.setText(steps[0]);
         }
         dots = new RadioButton[4];
         dots[0] = (RadioButton)findViewById(R.id.dot1);
@@ -117,7 +141,7 @@ public class RecipeActivity extends AppCompatActivity implements NavigationView.
                                        dots[0].setChecked(true);
                                        dishName.setText(dishText + " - krok 1");
                                        if(steps != null) {
-                                           stepText.setText(steps[0].getDescription());
+                                           stepText.setText(steps[0]);
                                        }
                                        return;
                                    case 3:
@@ -125,7 +149,7 @@ public class RecipeActivity extends AppCompatActivity implements NavigationView.
                                        dots[1].setChecked(true);
                                        dishName.setText(dishText + " - krok 2");
                                        if(steps != null) {
-                                           stepText.setText(steps[1].getDescription());
+                                           stepText.setText(steps[1]);
                                        }
                                        return;
                                    case 2:
@@ -133,7 +157,7 @@ public class RecipeActivity extends AppCompatActivity implements NavigationView.
                                        dots[2].setChecked(true);
                                        dishName.setText(dishText + " - krok 3");
                                        if(steps != null) {
-                                           stepText.setText(steps[2].getDescription());
+                                           stepText.setText(steps[2]);
                                        }
                                        return;
                                    default:
@@ -141,7 +165,7 @@ public class RecipeActivity extends AppCompatActivity implements NavigationView.
                                        dots[3].setChecked(true);
                                        dishName.setText(dishText + " - krok 4");
                                        if(steps != null) {
-                                           stepText.setText(steps[3].getDescription());
+                                           stepText.setText(steps[3]);
                                        }
                                }
                             }
@@ -150,6 +174,30 @@ public class RecipeActivity extends AppCompatActivity implements NavigationView.
                 return true;
             }
         });
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://chef.cba.pl")
+                .build();
+        Get service = retrofit.create(Get.class);
+        Call<ResponseBody> result = service.getStringJSON();
+        result.enqueue(new Callback<ResponseBody>() {
+
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                try {
+                    String responseString = response.body().string();
+                    dispalyImages(responseString);
+                } catch (IOException e) {
+                    Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                t.printStackTrace();
+            }
+
+        });
+
     }
 
     @Override
@@ -200,6 +248,42 @@ public class RecipeActivity extends AppCompatActivity implements NavigationView.
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_recipe);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void dispalyImages(String responseString) {
+        try {
+            JSONObject  jsonRootObject = new JSONObject(responseString);
+            JSONArray jsonArray = jsonRootObject.optJSONArray("Zdjecia");
+            int stepNr;
+            String photoString;
+            JSONObject jsonObject;
+            byte[] decodedString;
+            Bitmap decodedByte;
+            for(int i = 0; i < jsonArray.length(); i++){
+                jsonObject = jsonArray.getJSONObject(i);
+                stepNr = Integer.parseInt(jsonObject.optString("nrEtapu"));
+                photoString = jsonObject.optString("zdjecie");
+                if(stepNr != -1) {
+                    decodedString = Base64.decode(photoString, Base64.NO_WRAP);
+                    decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+                    switch(stepNr) {
+                        case 1:
+                            step1image.setImageBitmap(decodedByte);
+                            break;
+                        case 2:
+                            step4image.setImageBitmap(decodedByte);
+                            break;
+                        case 3:
+                            step3image.setImageBitmap(decodedByte);
+                            break;
+                        case 4:
+                            step2image.setImageBitmap(decodedByte);
+                    }
+                }
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
 }

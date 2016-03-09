@@ -29,5 +29,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:22.1.1'
     compile 'com.android.support:design:22.+'
-    compile files('libs/mysql-connector-java-5.1.38-bin.jar')
+    compile 'com.squareup.retrofit2:retrofit:2.0.0-beta4'
 }
