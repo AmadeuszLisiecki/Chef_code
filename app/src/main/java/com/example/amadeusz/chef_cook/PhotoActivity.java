@@ -2,6 +2,7 @@ package com.example.amadeusz.chef_cook;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -23,12 +24,12 @@ public class PhotoActivity extends Activity {
         setContentView(R.layout.activity_photo);
         final ViewFlipper viewFlipper = (ViewFlipper)findViewById(R.id.big_photo_flipper);
         Intent intent = getIntent();
-        position = intent.getIntExtra("position", 0);
+        int recivedPosition = intent.getIntExtra("position", 0);
+        position = recivedPosition;
         ArrayList<View> images = new ArrayList<>();
-        final ArrayList<Integer> biggers = intent.getIntegerArrayListExtra(("biggers"));
-        Toast.makeText(getApplicationContext(), (position + 1) + " / " + biggers.size(), Toast.LENGTH_SHORT).show();
+        final ArrayList<Bitmap> photos = Base.getBitmaps();
         int left = 1;
-        int right = biggers.size() - 1;
+        int right = photos.size() - 1;
         while(left < right) {
             if(left == position) {
                 position = right;
@@ -36,18 +37,20 @@ public class PhotoActivity extends Activity {
             else if(right == position) {
                 position = left;
             }
-            int tmp = biggers.get(left);
-            biggers.set(left, biggers.get(right));
-            biggers.set(right, tmp);
+            Bitmap tmp = photos.get(left);
+            photos.set(left, photos.get(right));
+            photos.set(right, tmp);
             left++;
             right--;
         }
-        for(int i = 0; i < biggers.size(); i++) {
+        for(int i = 0; i < photos.size(); i++) {
             images.add(new ImageView(getApplicationContext()));
-            ((ImageView) images.get(images.size() - 1)).setImageResource(biggers.get(i));
-            viewFlipper.addView(images.get(images.size()- 1));
+            ((ImageView) images.get(i)).setImageBitmap(photos.get(i));
+            viewFlipper.addView(images.get(i));
         }
+        //Toast.makeText(getApplicationContext(), position + "", Toast.LENGTH_SHORT).show();
         viewFlipper.setDisplayedChild(position);
+        Toast.makeText(getApplicationContext(), (recivedPosition + 1) + " / " + (photos.size()), Toast.LENGTH_SHORT).show();
         viewFlipper.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent touchevent) {
@@ -95,13 +98,13 @@ public class PhotoActivity extends Activity {
                                     position = 0;
                                 }
                                 else {
-                                    for(int i = 1; i < biggers.size(); i++) {
+                                    for(int i = 1; i < photos.size(); i++) {
                                         if(i == viewFlipper.getDisplayedChild()) {
-                                            position = biggers.size() - i;
+                                            position = photos.size() - i;
                                         }
                                     }
                                 }
-                                Toast.makeText(getApplicationContext(), (position + 1) + " / " + biggers.size(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), (position + 1) + " / " + photos.size(), Toast.LENGTH_SHORT).show();
                             }
                         });
                 }

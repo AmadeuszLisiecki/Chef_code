@@ -1,5 +1,7 @@
 package com.example.amadeusz.chef_cook;
 
+import android.graphics.Bitmap;
+
 public abstract class Multimedia {
 
     protected String type;
@@ -14,7 +16,7 @@ public abstract class Multimedia {
 
     public abstract String getReference();
 
-    public abstract int getPhotoId();
+    public abstract Bitmap getPhotoBitmap();
 
-    public abstract int getBiggerId();
+    public abstract Bitmap getPhotoBigBitmap();
 }

@@ -1,14 +1,16 @@
 package com.example.amadeusz.chef_cook;
 
+import android.graphics.Bitmap;
+
 public class Photo extends Multimedia {
 
-    private int photoId;
-    private int biggerId;
+    private Bitmap photoBitmap;
+    private Bitmap photoBigBitmap;
 
-    public Photo(int photoId, int biggerId) {
+    public Photo(Bitmap photoBitmap, Bitmap photoBigBitmap) {
         super("Zdjęcie");
-        this.photoId = photoId;
-        this.biggerId = biggerId;
+        this.photoBitmap = photoBitmap;
+        this.photoBigBitmap = photoBigBitmap;
     }
 
     @Override
@@ -16,12 +18,12 @@ public class Photo extends Multimedia {
         return null;
     }
 
-    public int getPhotoId() {
-        return photoId;
+    public Bitmap getPhotoBitmap() {
+        return photoBitmap;
     }
 
-    public int getBiggerId() {
-        return biggerId;
+    public Bitmap getPhotoBigBitmap() {
+        return photoBigBitmap;
     }
 
 }

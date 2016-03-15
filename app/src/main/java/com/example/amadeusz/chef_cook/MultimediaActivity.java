@@ -1,6 +1,8 @@
 package com.example.amadeusz.chef_cook;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -9,16 +11,31 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Base64;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.util.ArrayList;
 
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+
 public class MultimediaActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+    private ArrayList<Multimedia> multimedia;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,29 +56,58 @@ public class MultimediaActivity extends AppCompatActivity implements NavigationV
         dishName.setText(dishText + " - multimedia");
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_multimedia);
         navigationView.setNavigationItemSelectedListener(this);
-        final ArrayList<Multimedia> multimedia = Base.getRecepture(dishText).getMultimedia();
-        MultimediaAdapter adapter = new MultimediaAdapter(this, multimedia);
-        ListView listMultimedia = (ListView)findViewById(R.id.list_multimedia);
-        listMultimedia.setAdapter(adapter);
-        listMultimedia.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        multimedia = new ArrayList<>();
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://chef.cba.pl")
+                .build();
+        Get service = retrofit.create(Get.class);
+        Call<ResponseBody> result;
+        Toast.makeText(getApplicationContext(), "Poczekaj na pobranie zawartości!", Toast.LENGTH_SHORT).show();
+        switch(dishText) {
+            case "Muszle z łososiem":
+                result = service.getWideoForSalmoNudle();
+                if (result != null) {
+                    result.enqueue(new Callback<ResponseBody>() {
 
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Multimedia clicked = multimedia.get(position);
-                if(clicked.getType().equals("Wideo")) {
-                    Intent i = new Intent(Intent.ACTION_VIEW);
-                    i.setData(Uri.parse(clicked.getReference()));
-                    startActivity(i);
-                }
-                else {
-                    Intent swapScreen = new Intent(MultimediaActivity.this, PhotoActivity.class);
-                    swapScreen.putExtra("position", position);
-                    swapScreen.putExtra("biggers", Base.getRecepture(dishText).getBiggerPhotos());
-                    MultimediaActivity.this.startActivity(swapScreen);
-                }
-            }
+                        @Override
+                        public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                            try {
+                                String responseString = response.body().string();
+                                extractMultimedia(responseString, "Wideo");
+                            } catch (IOException e) {
+                                Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_SHORT).show();
+                            }
+                        }
 
-        });
+                        @Override
+                        public void onFailure(Call<ResponseBody> call, Throwable t) {
+                            Toast.makeText(getApplicationContext(), "Nie można pobrać zawartości!!", Toast.LENGTH_SHORT).show();
+                            t.printStackTrace();
+                        }
+
+                    });
+                }
+                result = service.getPhotosForSalmoNudle();
+                result.enqueue(new Callback<ResponseBody>() {
+
+                    @Override
+                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                        try {
+                            String responseString = response.body().string();
+                            extractMultimedia(responseString, "Zdjecia");
+                            setAdapter();
+                        } catch (IOException e) {
+                            Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<ResponseBody> call, Throwable t) {
+                        t.printStackTrace();
+                    }
+
+                });
+        }
     }
 
     @Override
@@ -83,16 +129,6 @@ public class MultimediaActivity extends AppCompatActivity implements NavigationV
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        //int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-       /* if (id == R.id.action_settings) {
-            return true;
-        }*/
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -112,6 +148,63 @@ public class MultimediaActivity extends AppCompatActivity implements NavigationV
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_multimedia);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void extractMultimedia(String responseString, String mode) {
+        try {
+            JSONObject jsonRootObject = new JSONObject(responseString);
+            JSONArray jsonArray;
+            if(mode.equals("Wideo")) {
+                jsonArray = jsonRootObject.optJSONArray("Wideo");
+            }
+            else {
+                jsonArray = jsonRootObject.optJSONArray("ZdjeciaPotraw");
+            }
+            JSONObject jsonObject;
+            for(int i = 0; i < jsonArray.length(); i++){
+                jsonObject = jsonArray.getJSONObject(i);
+                if(mode.equals("Wideo")) {
+                    String url = jsonObject.optString("url");
+                    multimedia.add(new Video(url));
+                }
+                else {
+                    String photoString = jsonObject.optString("zdjecie");
+                    String photoBigString = jsonObject.optString("zdjecieDuze");
+                    byte[] decodedString = Base64.decode(photoString, Base64.NO_WRAP);
+                    Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+                    byte[] decodedBigString = Base64.decode(photoBigString, Base64.NO_WRAP);
+                    Bitmap decodedByteBig = BitmapFactory.decodeByteArray(decodedBigString, 0, decodedBigString.length);
+                    multimedia.add(new Photo(decodedByte, decodedByteBig));
+                }
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void setAdapter() {
+        MultimediaAdapter adapter = new MultimediaAdapter(this, multimedia);
+        ListView listMultimedia = (ListView)findViewById(R.id.list_multimedia);
+        listMultimedia.setAdapter(adapter);
+        listMultimedia.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Multimedia clicked = multimedia.get(position);
+                if(clicked.getType().equals("Wideo")) {
+                    Intent i = new Intent(Intent.ACTION_VIEW);
+                    i.setData(Uri.parse(clicked.getReference()));
+                    startActivity(i);
+                }
+                else {
+                    Intent swapScreen = new Intent(MultimediaActivity.this, PhotoActivity.class);
+                    swapScreen.putExtra("position", position - 1);
+                    Base.addBitmaps(multimedia);
+                    MultimediaActivity.this.startActivity(swapScreen);
+                }
+            }
+
+        });
     }
 
 }

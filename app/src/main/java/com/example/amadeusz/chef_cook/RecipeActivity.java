@@ -28,10 +28,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -178,26 +175,33 @@ public class RecipeActivity extends AppCompatActivity implements NavigationView.
                 .baseUrl("http://chef.cba.pl")
                 .build();
         Get service = retrofit.create(Get.class);
-        Call<ResponseBody> result = service.getStringJSON();
-        result.enqueue(new Callback<ResponseBody>() {
+        Call<ResponseBody> result;
+        switch(dishText) {
+            case "Muszle z łososiem": {
+                result = service.getStepsPhotosForSalmoNudle();
+                if (result != null) {
+                    result.enqueue(new Callback<ResponseBody>() {
 
-            @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                try {
-                    String responseString = response.body().string();
-                    dispalyImages(responseString);
-                } catch (IOException e) {
-                    Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_SHORT).show();
+                        @Override
+                        public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                            try {
+                                String responseString = response.body().string();
+                                //Toast.makeText(getApplicationContext(), "ACAB", Toast.LENGTH_SHORT).show();
+                                dispalyImages(responseString);
+                            } catch (IOException e) {
+                                Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<ResponseBody> call, Throwable t) {
+                            //Toast.makeText(getApplicationContext(), "ACAB 1312", Toast.LENGTH_SHORT).show();
+                            t.printStackTrace();
+                        }
+                    });
                 }
             }
-
-            @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
-                t.printStackTrace();
-            }
-
-        });
-
+        }
     }
 
     @Override
@@ -253,7 +257,7 @@ public class RecipeActivity extends AppCompatActivity implements NavigationView.
     private void dispalyImages(String responseString) {
         try {
             JSONObject  jsonRootObject = new JSONObject(responseString);
-            JSONArray jsonArray = jsonRootObject.optJSONArray("Zdjecia");
+            JSONArray jsonArray = jsonRootObject.optJSONArray("ZdjeciaEtapow");
             int stepNr;
             String photoString;
             JSONObject jsonObject;

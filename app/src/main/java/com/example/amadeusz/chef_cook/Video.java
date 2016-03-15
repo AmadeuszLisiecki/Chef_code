@@ -1,5 +1,7 @@
 package com.example.amadeusz.chef_cook;
 
+import android.graphics.Bitmap;
+
 public class Video extends Multimedia {
 
     private String reference;
@@ -14,13 +16,13 @@ public class Video extends Multimedia {
     }
 
     @Override
-    public int getPhotoId() {
-        return R.drawable.video;
+    public Bitmap getPhotoBitmap() {
+        return null;
     }
 
     @Override
-    public int getBiggerId() {
-        return 0;
+    public Bitmap getPhotoBigBitmap() {
+        return null;
     }
 
 }

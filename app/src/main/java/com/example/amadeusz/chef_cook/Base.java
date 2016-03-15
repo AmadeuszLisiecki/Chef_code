@@ -1,5 +1,7 @@
 package com.example.amadeusz.chef_cook;
 
+import android.graphics.Bitmap;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -10,6 +12,7 @@ public class Base {
     private static ArrayList<ReceptureInBase> receptures = new ArrayList<>();
     private static ArrayList<Ingredient> ingredients = new ArrayList<>();
     private static ArrayList<Predictor> predictors = new ArrayList<>();
+    private static ArrayList<Bitmap> bitmaps;
 
     public static void transformRows(ArrayList<Row> added) {
         for (int i = 0; i < added.size(); i++) {
@@ -127,6 +130,20 @@ public class Base {
             }
         }
         return result;
+    }
+
+    public static void addBitmaps(ArrayList<Multimedia> added) {
+        if(bitmaps == null) {
+            bitmaps = new ArrayList<>();
+        }
+        bitmaps.clear();
+        for(int i = 1; i < added.size(); i++) {
+            bitmaps.add(added.get(i).getPhotoBigBitmap());
+        }
+    }
+
+    public static ArrayList<Bitmap> getBitmaps() {
+        return bitmaps;
     }
 
 }

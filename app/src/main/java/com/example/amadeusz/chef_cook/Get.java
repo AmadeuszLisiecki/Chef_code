@@ -6,7 +6,12 @@ import retrofit2.http.GET;
 
 public interface Get {
 
-    @GET("/getAll.php?type=Zdjecia&receptureName=muszleZLososiem")
-    Call<ResponseBody> getStringJSON();
+    @GET("/getAll.php?type=ZdjeciaEtapow&receptureName=muszleZLososiem")
+    Call<ResponseBody> getStepsPhotosForSalmoNudle();
 
+    @GET("/getAll.php?type=Wideo&receptureName=muszleZLososiem")
+    Call<ResponseBody> getWideoForSalmoNudle();
+
+    @GET("/getAll.php?type=ZdjeciaPotraw&receptureName=muszleZLososiem")
+    Call<ResponseBody> getPhotosForSalmoNudle();
 }

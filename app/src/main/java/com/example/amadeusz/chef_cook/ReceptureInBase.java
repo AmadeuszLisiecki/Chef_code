@@ -65,11 +65,11 @@ public class ReceptureInBase {
 
     public ArrayList<Integer> getBiggerPhotos() {
         ArrayList<Integer> result = new ArrayList<>();
-        for(int i = 0; i < multimedia.size(); i++) {
+        /*for(int i = 0; i < multimedia.size(); i++) {
             if(multimedia.get(i).getType().equals("Zdjęcie")) {
                 result.add(multimedia.get(i).getBiggerId());
             }
-        }
+        }*/
         return result;
     }
 

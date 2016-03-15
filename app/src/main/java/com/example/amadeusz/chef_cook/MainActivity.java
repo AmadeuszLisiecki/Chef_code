@@ -278,11 +278,11 @@ public class MainActivity extends AppCompatActivity
                         + " przyjaciół czy rodziny. Idealne na czas karnawału. Muszle przypominają swoim kształtem łódeczki.", 30, 50, 20, 2,
                 "łatwe", 30, 250, 20, "Kolacja");
         ArrayList<Multimedia> nuddleSalmonMultimedia = new ArrayList<>();
-        nuddleSalmonMultimedia.add(new Video("https://www.youtube.com/watch?v=sBgdm4tkB7I"));
+       /* nuddleSalmonMultimedia.add(new Video("https://www.youtube.com/watch?v=sBgdm4tkB7I"));
         nuddleSalmonMultimedia.add(new Photo(R.drawable.salmo_nuddle_photo1, R.drawable.salmo_nuddle_photo1_big));
         nuddleSalmonMultimedia.add(new Photo(R.drawable.salmo_nuddle_photo2, R.drawable.salmo_nuddle_photo2_big));
         nuddleSalmonMultimedia.add(new Photo(R.drawable.salmo_nuddle_photo3, R.drawable.salmo_nuddle_photo3_big));
-        nuddleSalmonMultimedia.add(new Photo(R.drawable.salmo_nuddle_photo4, R.drawable.salmo_nuddle_photo4_big));
+        nuddleSalmonMultimedia.add(new Photo(R.drawable.salmo_nuddle_photo4, R.drawable.salmo_nuddle_photo4_big));*/
         Base.getRecepture("Muszle z łososiem").setMultimedia(nuddleSalmonMultimedia);
         Base.addPredictor(new Predictor("Bulion", 250, 15, 5, R.drawable.bulion, "ml"));
         Base.addPredictor(new Predictor("Bułka tarta", 150, 8, 3, R.drawable.breadcrumbs, "g"));

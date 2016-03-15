@@ -22,14 +22,14 @@ public class MultimediaAdapter extends ArrayAdapter<Multimedia> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         Multimedia currentMultimedia = multimedia.get(position);
-        //int currentLayput = currentMultimedia.getType().equals("Zdjęcie") ? R.layout.multimedia : R.layout.video;
-        // Check if an existing view is being reused, otherwise inflate the view
         convertView = LayoutInflater.from(getContext()).inflate(R.layout.multimedia, parent, false);
         ImageView photo = (ImageView) convertView.findViewById(R.id.multimedia_photo);
-        photo.setImageResource(currentMultimedia.getPhotoId());
-        // Lookup view for data population
-        // Populate the data into the templat
-        // Return the completed view to render on screen
+        if (currentMultimedia.getType().equals("Zdjęcie")) {
+            photo.setImageBitmap(currentMultimedia.getPhotoBitmap());
+        }
+        else {
+            photo.setImageResource(R.drawable.video);
+        }
         return convertView;
     }
 }
