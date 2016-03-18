@@ -52,49 +52,50 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         rowTree = new ArrayList<>();
         rowTree.add(new Row(R.drawable.meat, "Potrawy mięsne", null, "Kategoria"));
-        rowTree.add(new Row(R.drawable.pork, "Wieprzowina", rowTree.get(0), "Kategoria"));
-        rowTree.add(new Row(R.drawable.poultry, "Drób", rowTree.get(0), "Kategoria"));
-        rowTree.add(new Row(R.drawable.chicken, "Kurczaki", rowTree.get(2), "Kategoria"));
-        rowTree.add(new Row(R.drawable.turkey, "Indyki", rowTree.get(2), "Kategoria"));
-        rowTree.add(new Row(R.drawable.goose, "Gęsi", rowTree.get(2), "Kategoria"));
-        rowTree.add(new Row(R.drawable.duck, "Kaczki", rowTree.get(2), "Kategoria"));
-        rowTree.add(new Row(R.drawable.beef, "Wołowina", rowTree.get(0), "Kategoria"));
-        rowTree.add(new Row(R.drawable.sousage, "Kiełbasy", rowTree.get(0), "Kategoria"));
+        //rowTree.add(new Row(R.drawable.pork, "Wieprzowina", rowTree.get(0), "Kategoria"));
+        //rowTree.add(new Row(R.drawable.poultry, "Drób", rowTree.get(0), "Kategoria"));
+        //rowTree.add(new Row(R.drawable.chicken, "Kurczaki", rowTree.get(2), "Kategoria"));
+        //rowTree.add(new Row(R.drawable.turkey, "Indyki", rowTree.get(2), "Kategoria"));
+        //rowTree.add(new Row(R.drawable.goose, "Gęsi", rowTree.get(2), "Kategoria"));
+        //rowTree.add(new Row(R.drawable.duck, "Kaczki", rowTree.get(2), "Kategoria"));
+        //rowTree.add(new Row(R.drawable.beef, "Wołowina", rowTree.get(0), "Kategoria"));
+        //rowTree.add(new Row(R.drawable.sousage, "Kiełbasy", rowTree.get(0), "Kategoria"));
         rowTree.add(new Row(R.drawable.fishes, "Potrawy rybne", null, "Kategoria"));
-        rowTree.add(new Row(R.drawable.herring, "Śledzie", rowTree.get(9), "Kategoria"));
-        rowTree.add(new Row(R.drawable.salmon, "Łososie", rowTree.get(9), "Kategoria"));
-        rowTree.add(new Row(R.drawable.trout, "Pstrągi", rowTree.get(9), "Kategoria"));
-        rowTree.add(new Row(R.drawable.carp, "Karpie", rowTree.get(9), "Kategoria"));
-        rowTree.add(new Row(R.drawable.seafood, "Owoce morza", rowTree.get(9), "Kategoria"));
+        //rowTree.add(new Row(R.drawable.herring, "Śledzie", rowTree.get(9), "Kategoria"));
+        //rowTree.add(new Row(R.drawable.salmon, "Łososie", rowTree.get(9), "Kategoria"));
+        //rowTree.add(new Row(R.drawable.trout, "Pstrągi", rowTree.get(9), "Kategoria"));
+        //rowTree.add(new Row(R.drawable.carp, "Karpie", rowTree.get(9), "Kategoria"));
+        //rowTree.add(new Row(R.drawable.seafood, "Owoce morza", rowTree.get(9), "Kategoria"));
         rowTree.add(new Row(R.drawable.meatless, "Potrawy bezmięsne", null, "Kategoria"));
-        rowTree.add(new Row(R.drawable.vegetables, "Warzywne", rowTree.get(15), "Kategoria"));
-        rowTree.add(new Row(R.drawable.mushrooms, "Grzybowe", rowTree.get(15), "Kategoria"));
-        rowTree.add(new Row(R.drawable.eggs_, "Z mąki, mleka i jajek, ", rowTree.get(15), "Kategoria"));
-        rowTree.add(new Row(R.drawable.noodles, "Makaronowe", rowTree.get(15), "Kategoria"));
-        rowTree.add(new Row(R.drawable.rise, "Z ryżu", rowTree.get(15), "Kategoria"));
-        rowTree.add(new Row(R.drawable.kasha, "Z kaszy", rowTree.get(15), "Kategoria"));
+        //rowTree.add(new Row(R.drawable.vegetables, "Warzywne", rowTree.get(15), "Kategoria"));
+        //rowTree.add(new Row(R.drawable.mushrooms, "Grzybowe", rowTree.get(15), "Kategoria"));
+        //rowTree.add(new Row(R.drawable.eggs_, "Z mąki, mleka i jajek, ", rowTree.get(15), "Kategoria"));
+        //rowTree.add(new Row(R.drawable.noodles, "Makaronowe", rowTree.get(15), "Kategoria"));
+        //rowTree.add(new Row(R.drawable.rise, "Z ryżu", rowTree.get(15), "Kategoria"));
+        //rowTree.add(new Row(R.drawable.kasha, "Z kaszy", rowTree.get(15), "Kategoria"));
         rowTree.add(new Row(R.drawable.soup, "Zupy", null, "Kategoria"));
-        rowTree.add(new Row(R.drawable.beet_soup, "Barszcze", rowTree.get(22), "Kategoria"));
-        rowTree.add(new Row(R.drawable.broth, "Rosoły", rowTree.get(22), "Kategoria"));
-        rowTree.add(new Row(R.drawable.barley_soup, "Krupniki", rowTree.get(22), "Kategoria"));
-        rowTree.add(new Row(R.drawable.pottage, "Jarzynowe", rowTree.get(22), "Kategoria"));
-        rowTree.add(new Row(R.drawable.tomato_soup, "Pomidorowe", rowTree.get(22), "Kategoria"));
+        //rowTree.add(new Row(R.drawable.beet_soup, "Barszcze", rowTree.get(22), "Kategoria"));
+        //rowTree.add(new Row(R.drawable.broth, "Rosoły", rowTree.get(22), "Kategoria"));
+        //rowTree.add(new Row(R.drawable.barley_soup, "Krupniki", rowTree.get(22), "Kategoria"));
+        //rowTree.add(new Row(R.drawable.pottage, "Jarzynowe", rowTree.get(22), "Kategoria"));
+        //rowTree.add(new Row(R.drawable.tomato_soup, "Pomidorowe", rowTree.get(22), "Kategoria"));
         rowTree.add(new Row(R.drawable.salad, "Sałatki", null, "Kategoria"));
-        rowTree.add(new Row(R.drawable.meat_salad, "Mięsne", rowTree.get(28), "Kategoria"));
-        rowTree.add(new Row(R.drawable.meat_salad, "Warzywne", rowTree.get(28), "Kategoria"));
-        rowTree.add(new Row(R.drawable.meat_salad, "Owocowe", rowTree.get(28), "Kategoria"));
-        rowTree.add(new Row(R.drawable.egg_salad, "Jajeczne", rowTree.get(28), "Kategoria"));
+        //rowTree.add(new Row(R.drawable.meat_salad, "Mięsne", rowTree.get(28), "Kategoria"));
+        //rowTree.add(new Row(R.drawable.meat_salad, "Warzywne", rowTree.get(28), "Kategoria"));
+        //rowTree.add(new Row(R.drawable.meat_salad, "Owocowe", rowTree.get(28), "Kategoria"));
+        //rowTree.add(new Row(R.drawable.egg_salad, "Jajeczne", rowTree.get(28), "Kategoria"));
         rowTree.add(new Row(R.drawable.snack, "Przekąski", null, "Kategoria"));
-        rowTree.add(new Row(R.drawable.cold_snack, "Na zimno", rowTree.get(33), "Kategoria"));
-        rowTree.add(new Row(R.drawable.hot_snack, "Na ciepło", rowTree.get(33), "Kategoria"));
+        //rowTree.add(new Row(R.drawable.cold_snack, "Na zimno", rowTree.get(33), "Kategoria"));
+        //rowTree.add(new Row(R.drawable.hot_snack, "Na ciepło", rowTree.get(33), "Kategoria"));
         rowTree.add(new Row(R.drawable.dessert, "Desery", null, "Kategoria"));
-        rowTree.add(new Row(R.drawable.pie, "Ciasta", rowTree.get(36), "Kategoria"));
-        rowTree.add(new Row(R.drawable.cake, "Ciastka", rowTree.get(36), "Kategoria"));
-        rowTree.add(new Row(R.drawable.kissel, "Kisiele", rowTree.get(36), "Kategoria"));
-        rowTree.add(new Row(R.drawable.pudding, "Budynie", rowTree.get(36), "Kategoria"));
-        rowTree.add(new Row(R.drawable.jelly, "Galaretki", rowTree.get(36), "Kategoria"));
+        //rowTree.add(new Row(R.drawable.pie, "Ciasta", rowTree.get(36), "Kategoria"));
+        //rowTree.add(new Row(R.drawable.cake, "Ciastka", rowTree.get(36), "Kategoria"));
+        //rowTree.add(new Row(R.drawable.kissel, "Kisiele", rowTree.get(36), "Kategoria"));
+        //rowTree.add(new Row(R.drawable.pudding, "Budynie", rowTree.get(36), "Kategoria"));
+        //rowTree.add(new Row(R.drawable.jelly, "Galaretki", rowTree.get(36), "Kategoria"));
         rowTree.add(new Row(R.drawable.health_food, "Zdrowa żywność", null, "Kategoria"));
-        rowTree.add(new Row(R.drawable.salmo_nuddle, "Muszle z łososiem", rowTree.get(11), "Przepis"));
+        rowTree.add(new Row(R.drawable.salmo_nuddle, "Muszle z łososiem", rowTree.get(1), "Przepis"));
+        rowTree.add(new Row(R.drawable.coconut_stew_with_pineapple, "Kokosowa potrawka z ananasem", rowTree.get(0), "Przepis"));
         fillDatabase();
         toView = new ArrayList<>();
         parentName = (TextView)findViewById(R.id.parent_text);
@@ -148,7 +149,6 @@ public class MainActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -204,6 +204,9 @@ public class MainActivity extends AppCompatActivity
 
     private void fillDatabase() {
         Base.transformRows(rowTree);
+
+        // MUSZLE Z ŁOSOSIEM
+
         Ingredient conchiglioniShells = new Ingredient(20, "", "muszli conchiglioni", 6);
         Ingredient cannelloniNuddle = new Ingredient(20, "sztuk", "makaronu cannelloni", -1);
         Ingredient pubescentHam = new Ingredient(120, "g", "szynki dojrzewającej", -1);
@@ -255,7 +258,6 @@ public class MainActivity extends AppCompatActivity
         Base.setSubstituteForIngredient(mulveriseMango, juiceWithLemon);
         Base.setSubstituteForIngredient(garlic, saltAndPepper);
         Base.setSubstituteForIngredient(parsley, chopChives);
-
         Base.match("Muszle z łososiem", conchiglioniShells);
         Base.match("Muszle z łososiem", smokedSalmon);
         Base.match("Muszle z łososiem", naturalCremeCheese);
@@ -265,7 +267,6 @@ public class MainActivity extends AppCompatActivity
         Base.match("Muszle z łososiem", juiceWithLemon);
         Base.match("Muszle z łososiem", saltAndPepper);
         Base.match("Muszle z łososiem", chopChives);
-
         String[] nuddleSalmonSteps = new String[]{
                 "Muszle ugotować w osolonym wrzątku al dente, przecedzić, przelać zimną wodą i wyłożyć na talerz.",
                 "W misce zmieszać ze sobą serek śmietankowy, pokrojonego łososia i jajka starte na tarce o małych oczkach.",
@@ -278,11 +279,6 @@ public class MainActivity extends AppCompatActivity
                         + " przyjaciół czy rodziny. Idealne na czas karnawału. Muszle przypominają swoim kształtem łódeczki.", 30, 50, 20, 2,
                 "łatwe", 30, 250, 20, "Kolacja");
         ArrayList<Multimedia> nuddleSalmonMultimedia = new ArrayList<>();
-       /* nuddleSalmonMultimedia.add(new Video("https://www.youtube.com/watch?v=sBgdm4tkB7I"));
-        nuddleSalmonMultimedia.add(new Photo(R.drawable.salmo_nuddle_photo1, R.drawable.salmo_nuddle_photo1_big));
-        nuddleSalmonMultimedia.add(new Photo(R.drawable.salmo_nuddle_photo2, R.drawable.salmo_nuddle_photo2_big));
-        nuddleSalmonMultimedia.add(new Photo(R.drawable.salmo_nuddle_photo3, R.drawable.salmo_nuddle_photo3_big));
-        nuddleSalmonMultimedia.add(new Photo(R.drawable.salmo_nuddle_photo4, R.drawable.salmo_nuddle_photo4_big));*/
         Base.getRecepture("Muszle z łososiem").setMultimedia(nuddleSalmonMultimedia);
         Base.addPredictor(new Predictor("Bulion", 250, 15, 5, R.drawable.bulion, "ml"));
         Base.addPredictor(new Predictor("Bułka tarta", 150, 8, 3, R.drawable.breadcrumbs, "g"));
@@ -322,6 +318,132 @@ public class MainActivity extends AppCompatActivity
         Base.addPredictor(new Predictor("Woda", 250, 15, 5, R.drawable.water, "ml"));
         Base.addPredictor(new Predictor("Żelatyna", 170, 10, 3, R.drawable.gelatine, "g"));
         Base.addPredictor(new Predictor("Żółty ser (starty)", 125, 8, 2.8, R.drawable.cheese, "g"));
+
+        // KOKOSOWA POTRAWKA Z ANANASEM
+
+        Ingredient chicken_breast = new Ingredient(1, " pojedyncza", "pierś z kurczaka", 2.1);
+        Ingredient other_meat = new Ingredient(200, "g", "innego mięsa (np. wątróbk, ryby)", -1);
+        Ingredient pineapple = new Ingredient(4, " plastry", "ananasa", 0.12);
+        Ingredient other_fruit = new Ingredient(4, " plastry", "innego owocu (np. jabłka)", -1);
+        Ingredient pineappple_syrup = new Ingredient(83, "ml", "syropu z ananasa", 0.4);
+        Ingredient other_syrup = new Ingredient(83, " ml", "soku lub syropu z innego owocu (np. jabłka)", -1);
+        Ingredient cherry_tomatoes = new Ingredient(6, "", "pomidorków koktajlowych", 1.5);
+        Ingredient tomatoe = new Ingredient(1, "", "pomidor", -1);
+        Ingredient yellow_pepper = new Ingredient(4, " plastry", "żółtej papryki", 0.2);
+        Ingredient other_pepper = new Ingredient(4, " plastry", "innej papryki (np. zielonej)", -1);
+        Ingredient red_pepper = new Ingredient(4, " plastry", "czerwonej papryki", 0.2);
+        Ingredient coconut_milk = new Ingredient(125, "ml", "mleka kokosowego", 7.7);
+        Ingredient milk = new Ingredient(125, " ml", "mleka krowiego", -1);
+        Ingredient water = new Ingredient(125, "ml", "wody", 0.05);
+        Ingredient cocnut_oil = new Ingredient(1, " łyżka", "oleju kokosowego", 1.37);
+        Ingredient oil = new Ingredient(1, " łyżka", "oleju słonecznikowego", -1);
+        Ingredient grape_seed_oil = new Ingredient(2, " łyżki", "oleju z pestek winogron", 1.35);
+        Ingredient oils = new Ingredient(2, " łyżki", "oleju słonecznikowego", -1);
+        // 1 łyżeczka soku z cytryny
+        Ingredient grated_lemon_peel = new Ingredient(1, " szczypta", "utartej skórki z cytryny", 0.34);
+        Ingredient other_citrus = new Ingredient(1, " szczypta", "utartej skórki z innego owoca cytrusowego (np. grapefruita)", -1);
+        Ingredient sugar_cane = new Ingredient(1, " szczypta", "cukru czcionowego", 0.04);
+        Ingredient sugar = new Ingredient(1, " szczypta", "cukru tzrcinowego", 0.04);
+        Ingredient badian = new Ingredient(1, "", "badian", 0.2);
+        Ingredient pepper = new Ingredient(1, " szczypta", "pieprzu", -1);
+        Ingredient curry3 = new Ingredient(1, " łyżeczka", "curry", 0.4);
+        Ingredient tropical_fruit_tea = new Ingredient(1, " saszetka", "herbaty o smaku owoców tropikalnych", 0.45);
+        Ingredient other_tea = new Ingredient(1, " saszetka", "innej herbaty", -1);
+        Ingredient peach_mango_tea = new Ingredient(2, " saszetki", "herbaty o smaku brzoskwinia-mango", 0.8);
+        //sól i pieprz
+        Ingredient kafir = new Ingredient(1, " liść", "kafiru", 0.06);
+        Ingredient lemon_peel = new Ingredient(1, "", "kawałek skórki cytryny", -1);
+        Ingredient cut_parsley = new Ingredient(2, " łyżki", "pokrojonej natki pietruszki", 0.42);
+        Base.addIngredient(chicken_breast);
+        Base.addIngredient(pineapple);
+        Base.addIngredient(pineappple_syrup);
+        Base.addIngredient(cherry_tomatoes);
+        Base.addIngredient(yellow_pepper);
+        Base.addIngredient(red_pepper);
+        Base.addIngredient(coconut_milk);
+        Base.addIngredient(water);
+        Base.addIngredient(cocnut_oil);
+        Base.addIngredient(grape_seed_oil);
+        //Base.addIngredient(juiceWithLemon);
+        Base.addIngredient(grated_lemon_peel);
+        //Base.addIngredient(saltAndPepper);
+        Base.addIngredient(sugar_cane);
+        Base.addIngredient(badian);
+        Base.addIngredient(curry3);
+        Base.addIngredient(grape_seed_oil);
+        Base.addIngredient(tropical_fruit_tea);
+        Base.addIngredient(peach_mango_tea);
+        Base.addIngredient(kafir);
+        Base.addIngredient(cut_parsley);
+        Base.addIngredient(other_meat);
+        Base.addIngredient(other_fruit);
+        Base.addIngredient(cut_parsley);
+        Base.addIngredient(tomatoe);
+        Base.addIngredient(other_pepper);
+        Base.addIngredient(milk);
+        Base.addIngredient(oil);
+        Base.addIngredient(oils);
+        Base.addIngredient(other_citrus);
+        Base.addIngredient(sugar);
+        Base.addIngredient(pepper);
+        Base.addIngredient(sugar);
+        Base.addIngredient(other_syrup);
+        Base.addIngredient(other_tea);
+        Base.addIngredient(lemon_peel);
+
+        Base.setSubstituteForIngredient(chicken_breast, other_meat);
+        Base.setSubstituteForIngredient(pineapple, other_fruit);
+        Base.setSubstituteForIngredient(pineappple_syrup, other_syrup);
+        Base.setSubstituteForIngredient(cherry_tomatoes, tomatoe);
+        Base.setSubstituteForIngredient(yellow_pepper, other_pepper);
+        Base.setSubstituteForIngredient(red_pepper, other_pepper);
+        Base.setSubstituteForIngredient(coconut_milk, milk);
+        Base.setSubstituteForIngredient(cocnut_oil, oil);
+        Base.setSubstituteForIngredient(grape_seed_oil, oils);
+        Base.setSubstituteForIngredient(grated_lemon_peel, other_citrus);
+        Base.setSubstituteForIngredient(sugar_cane, sugar);
+        Base.setSubstituteForIngredient(badian, pepper);
+        Base.setSubstituteForIngredient(curry3, pepper);
+        Base.setSubstituteForIngredient(tropical_fruit_tea, other_tea);
+        Base.setSubstituteForIngredient(peach_mango_tea, other_tea);
+        Base.setSubstituteForIngredient(kafir, lemon_peel);
+        Base.setSubstituteForIngredient(cut_parsley, chopChives);
+
+        Base.match("Kokosowa potrawka z ananasem", chicken_breast);
+        Base.match("Kokosowa potrawka z ananasem", pineapple);
+        Base.match("Kokosowa potrawka z ananasem", pineappple_syrup);
+        Base.match("Kokosowa potrawka z ananasem", cherry_tomatoes);
+        Base.match("Kokosowa potrawka z ananasem", yellow_pepper);
+        Base.match("Kokosowa potrawka z ananasem", red_pepper);
+        Base.match("Kokosowa potrawka z ananasem", coconut_milk);
+        Base.match("Kokosowa potrawka z ananasem", water);
+        Base.match("Kokosowa potrawka z ananasem", cocnut_oil);
+        Base.match("Kokosowa potrawka z ananasem", grape_seed_oil);
+        Base.match("Kokosowa potrawka z ananasem", juiceWithLemon);
+        Base.match("Kokosowa potrawka z ananasem", grated_lemon_peel);
+        Base.match("Kokosowa potrawka z ananasem", saltAndPepper);
+        Base.match("Kokosowa potrawka z ananasem", sugar_cane);
+        Base.match("Kokosowa potrawka z ananasem", badian);
+        Base.match("Kokosowa potrawka z ananasem", curry3);
+        Base.match("Kokosowa potrawka z ananasem", grape_seed_oil);
+        Base.match("Kokosowa potrawka z ananasem", tropical_fruit_tea);
+        Base.match("Kokosowa potrawka z ananasem", peach_mango_tea);
+        Base.match("Kokosowa potrawka z ananasem", kafir);
+        Base.match("Kokosowa potrawka z ananasem", cut_parsley);
+
+        String[] coconutStewWithPineappleSteps = new String[]{
+                "Pokroić w cienkie paseczki pierś z kurczaka. Wymieszać w miseczce z olejem, płatkami paprykowymi, szczyptą soli i połową curry. Na głębokiej patelni lub w woku rozgrzać olej kokosowy.",
+                "Włożyć paski kurczaka i obsmażyć na rumiano. Odcedzić ananas z zalewy. Zmiksować papryki i ananasa (nie za drobno) w rozdrabniaczu. Przełożyć pastę na patelnię.",
+                "Dorzucić listek kafiru, curry, kurkumę, skórkę cytrynową, badian, pieprz kolorowy, cukier, sok z ananasa. Zalać wodą i mlekiem kokosowym. Zagotować. Włożyć herbaty. Dusić na małym gazie 20 minut.",
+                "Usunąć saszetki herbaty i listek kafiru. Doprawić do smaku solą , pieprzem i sokiem z cytryny. Pomidorki przekroić na pół i usunąć pestki. Miąższ pokroić w cienkie paski. Wrzucić na patelnię i dusić pod przykryciem 5 minut."
+        };
+        Base.addStep(coconutStewWithPineappleSteps);
+        Base.match("Kokosowa potrawka z ananasem", coconutStewWithPineappleSteps);
+        /*Base.getRecepture("Kokosowa potrawka z ananasem").setDetails("Szybki sposób na tajską potrawkę. Herbaty smakowe świetnie sprawdzają się jako przyprawy. Wystarczy kilkanaście minut i obiad gotowy", 30, 50, 20, 2,
+                "łatwe", 30, 250, 20, "Kolacja");
+        ArrayList<Multimedia> nuddleSalmonMultimedia = new ArrayList<>();
+        Base.getRecepture("Muszle z łososiem").setMultimedia(nuddleSalmonMultimedia);*/
+
     }
 
     public void search(View v) {

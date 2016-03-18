@@ -28,7 +28,7 @@ public class IngredientAdapter extends ArrayAdapter<Ingredient> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View row = convertView;
-        RowBeanHolder holder = null;
+        RowBeanHolder holder;
 
         if(row == null)
         {

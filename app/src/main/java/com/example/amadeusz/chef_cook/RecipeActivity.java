@@ -98,33 +98,22 @@ public class RecipeActivity extends AppCompatActivity implements NavigationView.
                         return true;
                     case MotionEvent.ACTION_UP:
                         float currentX = touchevent.getX();
-                        // Handling left to right screen swap.
                         if (lastX < currentX) {
-                            // If there aren't any other children, just break.
                             if (swapSteps.getDisplayedChild() == 0)
                                 break;
-                            // Next screen comes in from left.
                             swapSteps.setInAnimation(getApplication(), R.anim.slide_in_from_left);
-
-                            // Current screen goes out from right.
                             swapSteps.setOutAnimation(getApplication(), R.anim.slide_out_to_right);
-
-                            // Display next screen.
                             swapSteps.showNext();
                         }
-                        // Handling right to left screen swap.
                         if (lastX > currentX) {
-                            // If there is a child (to the left), kust break.
                             if (swapSteps.getDisplayedChild() == 1)
                                 break;
-                            // Next screen comes in from right.
                             swapSteps.setInAnimation(getApplication(), R.anim.slide_in_from_right);
-                            // Current screen goes out from left.
                             swapSteps.setOutAnimation(getApplication(), R.anim.slide_out_to_left);
-                            // Display previous screen.
                             swapSteps.showPrevious();
                         }
                         swapSteps.getOutAnimation().setAnimationListener(new Animation.AnimationListener() {
+
                             public void onAnimationStart(Animation animation) {
                             }
 
@@ -175,32 +164,34 @@ public class RecipeActivity extends AppCompatActivity implements NavigationView.
                 .baseUrl("http://chef.cba.pl")
                 .build();
         Get service = retrofit.create(Get.class);
-        Call<ResponseBody> result;
+        Call<ResponseBody> result = null;
         switch(dishText) {
             case "Muszle z łososiem": {
                 result = service.getStepsPhotosForSalmoNudle();
-                if (result != null) {
-                    result.enqueue(new Callback<ResponseBody>() {
-
-                        @Override
-                        public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                            try {
-                                String responseString = response.body().string();
-                                //Toast.makeText(getApplicationContext(), "ACAB", Toast.LENGTH_SHORT).show();
-                                dispalyImages(responseString);
-                            } catch (IOException e) {
-                                Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_SHORT).show();
-                            }
-                        }
-
-                        @Override
-                        public void onFailure(Call<ResponseBody> call, Throwable t) {
-                            //Toast.makeText(getApplicationContext(), "ACAB 1312", Toast.LENGTH_SHORT).show();
-                            t.printStackTrace();
-                        }
-                    });
-                }
+                break;
             }
+            case "Kokosowa potrawka z ananasem": {
+                result = service.getStepsPhotosCoconutStewWithPineapple();
+            }
+        }
+        if (result != null) {
+            result.enqueue(new Callback<ResponseBody>() {
+
+                @Override
+                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                    try {
+                        String responseString = response.body().string();
+                        dispalyImages(responseString);
+                    } catch (IOException e) {
+                        Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<ResponseBody> call, Throwable t) {
+                    t.printStackTrace();
+                }
+            });
         }
     }
 
@@ -216,25 +207,15 @@ public class RecipeActivity extends AppCompatActivity implements NavigationView.
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        //int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-
-
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();

@@ -42,7 +42,7 @@
             android:gravity="center"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:textSize="21sp"
+            android:textSize="14sp"
             android:id="@+id/text_ingredients"
             android:layout_alignParentRight="true"
             />

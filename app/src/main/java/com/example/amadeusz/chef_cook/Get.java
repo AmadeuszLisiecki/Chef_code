@@ -14,4 +14,8 @@ public interface Get {
 
     @GET("/getAll.php?type=ZdjeciaPotraw&receptureName=muszleZLososiem")
     Call<ResponseBody> getPhotosForSalmoNudle();
+
+    @GET("/getAll.php?type=ZdjeciaEtapow&receptureName=kokosowaPOtrawkaZAnanasem")
+    Call<ResponseBody> getStepsPhotosCoconutStewWithPineapple();
+
 }

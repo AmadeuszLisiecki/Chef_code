@@ -47,13 +47,11 @@ public class IngredientsActivity extends AppCompatActivity implements Navigation
         dishName.setText(dishText + " - składniki");
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_ingredients);
         navigationView.setNavigationItemSelectedListener(this);
-
-        setAdapter(Base.getIngredientsForRecepture("Muszle z łososiem"), "Składniki");
+        setAdapter(Base.getIngredientsForRecepture(dishText), "Składniki");
         dotIngredients = (RadioButton)findViewById(R.id.dot_ingredients);
         dotSubstituties = (RadioButton)findViewById(R.id.dot_substitutes);
         dotCost = (RadioButton)findViewById(R.id.dot_cost);
         dotIngredients.setChecked(true);
-
     }
 
     private void setAdapter(ArrayList<Ingredient> toView, String mode) {
@@ -74,27 +72,15 @@ public class IngredientsActivity extends AppCompatActivity implements Navigation
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        //int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-       /* if (id == R.id.action_settings) {
-            return true;
-        }*/
-
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -135,12 +121,12 @@ public class IngredientsActivity extends AppCompatActivity implements Navigation
                 dotIngredients.setChecked(false);
             }
             dishName.setText(dishText + " - zamienniki");
-            setAdapter(Base.getIngredientsForRecepture("Muszle z łososiem"), "Zamienniki");
+            setAdapter(Base.getIngredientsForRecepture(dishText), "Zamienniki");
         }
         else {
             dishName.setText(dishText + " - koszt");
             (dotIngredients.isChecked() ? dotIngredients : dotSubstituties).setChecked(false);
-            setAdapter(Base.getIngredientsForRecepture("Muszle z łososiem"), "Koszt");
+            setAdapter(Base.getIngredientsForRecepture(dishText), "Koszt");
             new AlertDialog.Builder(this)
                     .setMessage("Szacowana cena potrawy to: " + Base.getPriceForRecepture(dishText) + " zł.")
                     .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
