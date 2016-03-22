@@ -218,11 +218,11 @@ public class MainActivity extends AppCompatActivity
         Ingredient pressBanana = new Ingredient(3, "", "zgniecione banany", -1);
         Ingredient eggsOnHard = new Ingredient(3, "", "jajka ugotowane na twardo", 1.2);
         Ingredient homogenizedCheese = new Ingredient(4, "łyżeczki", "serka homogenizowanego", -1);
-        Ingredient mayonnaise = new Ingredient(1, "łyżka", "majonezu", 0.3);
+        Ingredient mayonnaise = new Ingredient(1, " łyżka", "majonezu", 0.3);
         Ingredient olivies = new Ingredient(1, "łyżeczka", "oliwek", -1);
-        Ingredient mustard = new Ingredient(1, "łyżeczka", "musztardy", 0.05);
+        Ingredient mustard = new Ingredient(1, " łyżeczka", "musztardy", 0.05);
         Ingredient mulveriseMango = new Ingredient(1, "łyżeczka", "sproszkowanego mango", -1);
-        Ingredient juiceWithLemon = new Ingredient(1, "łyżeczka", "soku z cytryny", 0.1);
+        Ingredient juiceWithLemon = new Ingredient(1, " łyżeczka", "soku z cytryny", 0.1);
         Ingredient garlic = new Ingredient(-1, "", "czosnek", -1);
         Ingredient saltAndPepper = new Ingredient(-1, "", "sól i pieprz", 0.17);
         Ingredient parsley = new Ingredient(-1, "", "natka pietruszki", -1);
@@ -276,8 +276,8 @@ public class MainActivity extends AppCompatActivity
         Base.addStep(nuddleSalmonSteps);
         Base.match("Muszle z łososiem", nuddleSalmonSteps);
         Base.getRecepture("Muszle z łososiem").setDetails("Dziś pomysł na pyszną przekąskę, która uświetni niejedno przyjęcie w gronie"
-                        + " przyjaciół czy rodziny. Idealne na czas karnawału. Muszle przypominają swoim kształtem łódeczki.", 30, 50, 20, 2,
-                "łatwe", 30, 250, 20, "Kolacja");
+                        + " przyjaciół czy rodziny. Idealne na czas karnawału. Muszle przypominają swoim kształtem łódeczki.", 30, 66, 12, 26,
+                "łatwe", 260, 542, 4, "Kolacja");
         ArrayList<Multimedia> nuddleSalmonMultimedia = new ArrayList<>();
         Base.getRecepture("Muszle z łososiem").setMultimedia(nuddleSalmonMultimedia);
         Base.addPredictor(new Predictor("Bulion", 250, 15, 5, R.drawable.bulion, "ml"));
@@ -370,7 +370,7 @@ public class MainActivity extends AppCompatActivity
         Base.addIngredient(sugar_cane);
         Base.addIngredient(badian);
         Base.addIngredient(curry3);
-        Base.addIngredient(grape_seed_oil);
+        Base.addIngredient(oil);
         Base.addIngredient(tropical_fruit_tea);
         Base.addIngredient(peach_mango_tea);
         Base.addIngredient(kafir);
@@ -439,10 +439,10 @@ public class MainActivity extends AppCompatActivity
         };
         Base.addStep(coconutStewWithPineappleSteps);
         Base.match("Kokosowa potrawka z ananasem", coconutStewWithPineappleSteps);
-        /*Base.getRecepture("Kokosowa potrawka z ananasem").setDetails("Szybki sposób na tajską potrawkę. Herbaty smakowe świetnie sprawdzają się jako przyprawy. Wystarczy kilkanaście minut i obiad gotowy", 30, 50, 20, 2,
-                "łatwe", 30, 250, 20, "Kolacja");
-        ArrayList<Multimedia> nuddleSalmonMultimedia = new ArrayList<>();
-        Base.getRecepture("Muszle z łososiem").setMultimedia(nuddleSalmonMultimedia);*/
+        Base.getRecepture("Kokosowa potrawka z ananasem").setDetails("Szybki sposób na tajską potrawkę. Herbaty smakowe świetnie sprawdzają się jako przyprawy. Wystarczy kilkadziesiąt minut i obiad gotowy", 20, 28, 24, 89,
+                "łatwe", 549, 1014, 2, "Obiad");
+        //ArrayList<Multimedia> nuddleSalmonMultimedia = new ArrayList<>();
+        Base.getRecepture("Muszle z łososiem").setMultimedia(nuddleSalmonMultimedia);
 
     }
 

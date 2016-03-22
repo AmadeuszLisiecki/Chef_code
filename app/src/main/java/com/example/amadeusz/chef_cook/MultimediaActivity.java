@@ -36,6 +36,8 @@ import retrofit2.Retrofit;
 public class MultimediaActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private ArrayList<Multimedia> multimedia;
+    private Call<ResponseBody> result;
+    private Get service;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +45,7 @@ public class MultimediaActivity extends AppCompatActivity implements NavigationV
         setContentView(R.layout.activity_multimedia);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        if(getSupportActionBar() != null) {
+        if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle(null);
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_multimedia);
@@ -60,53 +62,44 @@ public class MultimediaActivity extends AppCompatActivity implements NavigationV
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://chef.cba.pl")
                 .build();
-        Get service = retrofit.create(Get.class);
-        Call<ResponseBody> result;
+        service = retrofit.create(Get.class);
         Toast.makeText(getApplicationContext(), "Poczekaj na pobranie zawartości!", Toast.LENGTH_SHORT).show();
-        switch(dishText) {
-            case "Muszle z łososiem":
+        switch (dishText) {
+            case "Muszle z łososiem": {
                 result = service.getWideoForSalmoNudle();
-                if (result != null) {
-                    result.enqueue(new Callback<ResponseBody>() {
+                getVideoAndPhoto(dishText);
+                break;
+            }
+            case "Kokosowa potrawka z ananasem": {
+                result = service.getPhotosCoconutStewWithPineapple();
+                getPhotos();
+            }
 
-                        @Override
-                        public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                            try {
-                                String responseString = response.body().string();
-                                extractMultimedia(responseString, "Wideo");
-                            } catch (IOException e) {
-                                Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_SHORT).show();
-                            }
-                        }
+        }
+    }
 
-                        @Override
-                        public void onFailure(Call<ResponseBody> call, Throwable t) {
-                            Toast.makeText(getApplicationContext(), "Nie można pobrać zawartości!!", Toast.LENGTH_SHORT).show();
-                            t.printStackTrace();
-                        }
+    private void getPhotos() {
+        if (result != null) {
+            result.enqueue(new Callback<ResponseBody>() {
 
-                    });
+                @Override
+                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                    try {
+                        String responseString = response.body().string();
+                        extractMultimedia(responseString, "Zdjęcia");
+                        setAdapter();
+                    } catch (IOException e) {
+                        Toast.makeText(getApplicationContext(), "Błąd wejścia wyjścia", Toast.LENGTH_SHORT).show();
+                        e.printStackTrace();
+                    }
                 }
-                result = service.getPhotosForSalmoNudle();
-                result.enqueue(new Callback<ResponseBody>() {
 
-                    @Override
-                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                        try {
-                            String responseString = response.body().string();
-                            extractMultimedia(responseString, "Zdjecia");
-                            setAdapter();
-                        } catch (IOException e) {
-                            Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_SHORT).show();
-                        }
-                    }
+                @Override
+                public void onFailure(Call<ResponseBody> call, Throwable t) {
+                    Toast.makeText(getApplicationContext(), "Nie udało się pobrać", Toast.LENGTH_SHORT).show();
+                }
 
-                    @Override
-                    public void onFailure(Call<ResponseBody> call, Throwable t) {
-                        t.printStackTrace();
-                    }
-
-                });
+            });
         }
     }
 
@@ -198,7 +191,7 @@ public class MultimediaActivity extends AppCompatActivity implements NavigationV
                 }
                 else {
                     Intent swapScreen = new Intent(MultimediaActivity.this, PhotoActivity.class);
-                    swapScreen.putExtra("position", position - 1);
+                    swapScreen.putExtra("position", position);
                     Base.addBitmaps(multimedia);
                     MultimediaActivity.this.startActivity(swapScreen);
                 }
@@ -207,4 +200,60 @@ public class MultimediaActivity extends AppCompatActivity implements NavigationV
         });
     }
 
+    private void getVideoAndPhoto(final String receptureName) {
+        if (result != null) {
+            result.enqueue(new Callback<ResponseBody>() {
+
+                @Override
+                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                    try {
+                        String responseString = response.body().string();
+                        extractMultimedia(responseString, "Wideo");
+                        result = getResult(receptureName, "Zdjęcia");
+                        result.enqueue(new Callback<ResponseBody>() {
+
+                            @Override
+                            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                                try {
+                                    String responseString = response.body().string();
+                                    extractMultimedia(responseString, "Zdjęcia");
+                                    setAdapter();
+                                } catch (IOException e) {
+                                    Toast.makeText(getApplicationContext(), "Błąd wejścia wyjścia", Toast.LENGTH_SHORT).show();
+                                    e.printStackTrace();
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                                Toast.makeText(getApplicationContext(), "Nie udało się pobrać", Toast.LENGTH_SHORT).show();
+                            }
+
+                        });
+                    } catch (IOException e) {
+                        Toast.makeText(getApplicationContext(), "Błąd wejścia wyjścia", Toast.LENGTH_SHORT).show();
+                        e.printStackTrace();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<ResponseBody> call, Throwable t) {
+                    Toast.makeText(getApplicationContext(), "Nie udało się pobrać", Toast.LENGTH_SHORT).show();
+                }
+
+            });
+        }
+    }
+
+    private Call<ResponseBody> getResult(String receptureName, String mode) {
+        switch (receptureName) {
+            case "Muszle z łososiem": {
+                return mode.equals("Wideo") ? service.getWideoForSalmoNudle() : service.getPhotosForSalmoNudle();
+            }
+            case "Kokosowa potrawka z ananasem": {
+                return service.getPhotosCoconutStewWithPineapple();
+            }
+        }
+        return null;
+    }
 }

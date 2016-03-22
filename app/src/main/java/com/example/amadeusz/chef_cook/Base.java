@@ -13,6 +13,7 @@ public class Base {
     private static ArrayList<Ingredient> ingredients = new ArrayList<>();
     private static ArrayList<Predictor> predictors = new ArrayList<>();
     private static ArrayList<Bitmap> bitmaps;
+    private static int videoCunter;
 
     public static void transformRows(ArrayList<Row> added) {
         for (int i = 0; i < added.size(); i++) {
@@ -137,13 +138,22 @@ public class Base {
             bitmaps = new ArrayList<>();
         }
         bitmaps.clear();
-        for(int i = 1; i < added.size(); i++) {
+        videoCunter = 0;
+        for(int i = 0; i < added.size(); i++) {
+            if(added.get(i).getType().equals("Wideo") && i != added.size() - 1) {
+                videoCunter++;
+                i++;
+            }
             bitmaps.add(added.get(i).getPhotoBigBitmap());
         }
     }
 
     public static ArrayList<Bitmap> getBitmaps() {
         return bitmaps;
+    }
+
+    public static int getVideoCunter() {
+        return videoCunter;
     }
 
 }

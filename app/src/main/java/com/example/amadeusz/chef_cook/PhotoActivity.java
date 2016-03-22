@@ -25,6 +25,11 @@ public class PhotoActivity extends Activity {
         final ViewFlipper viewFlipper = (ViewFlipper)findViewById(R.id.big_photo_flipper);
         Intent intent = getIntent();
         int recivedPosition = intent.getIntExtra("position", 0);
+        int videosNumber = Base.getVideoCunter();
+        while(videosNumber != 0) {
+            recivedPosition--;
+            videosNumber--;
+        }
         position = recivedPosition;
         ArrayList<View> images = new ArrayList<>();
         final ArrayList<Bitmap> photos = Base.getBitmaps();
