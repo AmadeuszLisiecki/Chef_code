@@ -21,4 +21,22 @@ public interface Get {
     @GET("/getAll.php?type=ZdjeciaPotraw&receptureName=kokosowaPotrawkaZAnanasem")
     Call<ResponseBody> getPhotosCoconutStewWithPineapple();
 
+    @GET("/getAll.php?type=ZdjeciaEtapow&receptureName=slodkiePampuchy")
+    Call<ResponseBody> getStepsPhotosSweetPampuchy();
+
+    @GET("/getAll.php?type=Wideo&receptureName=slodkiePampuchy")
+    Call<ResponseBody> getWideoForSweetPampuchy();
+
+    @GET("/getAll.php?type=ZdjeciaPotraw&receptureName=slodkiePampuchy")
+    Call<ResponseBody> getPhotosSweetPampuchy();
+
+    @GET("/getAll.php?type=ZdjeciaEtapow&receptureName=zupaPomidorowa")
+    Call<ResponseBody> getStepsPhotosForTomatoSoup();
+
+    @GET("/getAll.php?type=Wideo&receptureName=zupaPomidorowa")
+    Call<ResponseBody> getWideoForTomatoSoup();
+
+    @GET("/getAll.php?type=ZdjeciaPotraw&receptureName=zupaPomidorowa")
+    Call<ResponseBody> getPhotosTomatoSoup();
+
 }

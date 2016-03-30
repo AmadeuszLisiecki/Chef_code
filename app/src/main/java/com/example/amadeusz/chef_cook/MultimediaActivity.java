@@ -68,13 +68,22 @@ public class MultimediaActivity extends AppCompatActivity implements NavigationV
             case "Muszle z łososiem": {
                 result = service.getWideoForSalmoNudle();
                 getVideoAndPhoto(dishText);
-                break;
+                return;
             }
             case "Kokosowa potrawka z ananasem": {
                 result = service.getPhotosCoconutStewWithPineapple();
                 getPhotos();
+                return;
             }
-
+            case "Słodkie pampuchy": {
+                result = service.getWideoForSweetPampuchy();
+                getVideoAndPhoto(dishText);
+                return;
+            }
+            case "Zupa pomidorowa": {
+                result = service.getWideoForTomatoSoup();
+                getVideoAndPhoto(dishText);
+            }
         }
     }
 
@@ -115,7 +124,6 @@ public class MultimediaActivity extends AppCompatActivity implements NavigationV
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
@@ -252,6 +260,12 @@ public class MultimediaActivity extends AppCompatActivity implements NavigationV
             }
             case "Kokosowa potrawka z ananasem": {
                 return service.getPhotosCoconutStewWithPineapple();
+            }
+            case "Słodkie pampuchy": {
+                return mode.equals("Wideo") ? service.getWideoForSweetPampuchy() : service.getPhotosSweetPampuchy();
+            }
+            case "Zupa pomidorowa": {
+                return mode.equals("Wideo") ? service.getWideoForTomatoSoup() : service.getPhotosTomatoSoup();
             }
         }
         return null;

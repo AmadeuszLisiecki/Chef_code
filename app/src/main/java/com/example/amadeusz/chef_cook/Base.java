@@ -142,9 +142,11 @@ public class Base {
         for(int i = 0; i < added.size(); i++) {
             if(added.get(i).getType().equals("Wideo") && i != added.size() - 1) {
                 videoCunter++;
-                i++;
+                //i++;
             }
-            bitmaps.add(added.get(i).getPhotoBigBitmap());
+            else {
+                bitmaps.add(added.get(i).getPhotoBigBitmap());
+            }
         }
     }
 

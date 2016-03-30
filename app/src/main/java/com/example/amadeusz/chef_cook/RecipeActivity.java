@@ -172,6 +172,14 @@ public class RecipeActivity extends AppCompatActivity implements NavigationView.
             }
             case "Kokosowa potrawka z ananasem": {
                 result = service.getStepsPhotosCoconutStewWithPineapple();
+                break;
+            }
+            case "Słodkie pampuchy": {
+                result = service.getStepsPhotosSweetPampuchy();
+                break;
+            }
+            case "Zupa pomidorowa": {
+                result = service.getStepsPhotosForTomatoSoup();
             }
         }
         if (result != null) {

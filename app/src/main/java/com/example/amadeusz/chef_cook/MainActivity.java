@@ -96,6 +96,8 @@ public class MainActivity extends AppCompatActivity
         rowTree.add(new Row(R.drawable.health_food, "Zdrowa żywność", null, "Kategoria"));
         rowTree.add(new Row(R.drawable.salmo_nuddle, "Muszle z łososiem", rowTree.get(1), "Przepis"));
         rowTree.add(new Row(R.drawable.coconut_stew_with_pineapple, "Kokosowa potrawka z ananasem", rowTree.get(0), "Przepis"));
+        rowTree.add(new Row(R.drawable.sweet_pampuchy, "Słodkie pampuchy", rowTree.get(2), "Przepis"));
+        rowTree.add(new Row(R.drawable.tomato_soup, "Zupa pomidorowa", rowTree.get(3), "Przepis"));
         fillDatabase();
         toView = new ArrayList<>();
         parentName = (TextView)findViewById(R.id.parent_text);
@@ -278,8 +280,6 @@ public class MainActivity extends AppCompatActivity
         Base.getRecepture("Muszle z łososiem").setDetails("Dziś pomysł na pyszną przekąskę, która uświetni niejedno przyjęcie w gronie"
                         + " przyjaciół czy rodziny. Idealne na czas karnawału. Muszle przypominają swoim kształtem łódeczki.", 30, 66, 12, 26,
                 "łatwe", 260, 542, 4, "Kolacja");
-        ArrayList<Multimedia> nuddleSalmonMultimedia = new ArrayList<>();
-        Base.getRecepture("Muszle z łososiem").setMultimedia(nuddleSalmonMultimedia);
         Base.addPredictor(new Predictor("Bulion", 250, 15, 5, R.drawable.bulion, "ml"));
         Base.addPredictor(new Predictor("Bułka tarta", 150, 8, 3, R.drawable.breadcrumbs, "g"));
         Base.addPredictor(new Predictor("Cukier", 220, 15, 5, R.drawable.sugar, "g"));
@@ -342,8 +342,7 @@ public class MainActivity extends AppCompatActivity
         // 1 łyżeczka soku z cytryny
         Ingredient grated_lemon_peel = new Ingredient(1, " szczypta", "utartej skórki z cytryny", 0.34);
         Ingredient other_citrus = new Ingredient(1, " szczypta", "utartej skórki z innego owoca cytrusowego (np. grapefruita)", -1);
-        Ingredient sugar_cane = new Ingredient(1, " szczypta", "cukru czcionowego", 0.04);
-        Ingredient sugar = new Ingredient(1, " szczypta", "cukru tzrcinowego", 0.04);
+        Ingredient sugar_cane = new Ingredient(1, " szczypta", "cukru trzcionowego", 0.04);
         Ingredient badian = new Ingredient(1, "", "badian", 0.2);
         Ingredient pepper = new Ingredient(1, " szczypta", "pieprzu", -1);
         Ingredient curry3 = new Ingredient(1, " łyżeczka", "curry", 0.4);
@@ -354,6 +353,7 @@ public class MainActivity extends AppCompatActivity
         Ingredient kafir = new Ingredient(1, " liść", "kafiru", 0.06);
         Ingredient lemon_peel = new Ingredient(1, "", "kawałek skórki cytryny", -1);
         Ingredient cut_parsley = new Ingredient(2, " łyżki", "pokrojonej natki pietruszki", 0.42);
+        Ingredient sugar = new Ingredient(1, " szczypta", "cukru buraczanego", -1);
         Base.addIngredient(chicken_breast);
         Base.addIngredient(pineapple);
         Base.addIngredient(pineappple_syrup);
@@ -384,9 +384,8 @@ public class MainActivity extends AppCompatActivity
         Base.addIngredient(oil);
         Base.addIngredient(oils);
         Base.addIngredient(other_citrus);
-        Base.addIngredient(sugar);
+        Base.addIngredient(sugar_cane);
         Base.addIngredient(pepper);
-        Base.addIngredient(sugar);
         Base.addIngredient(other_syrup);
         Base.addIngredient(other_tea);
         Base.addIngredient(lemon_peel);
@@ -441,8 +440,137 @@ public class MainActivity extends AppCompatActivity
         Base.match("Kokosowa potrawka z ananasem", coconutStewWithPineappleSteps);
         Base.getRecepture("Kokosowa potrawka z ananasem").setDetails("Szybki sposób na tajską potrawkę. Herbaty smakowe świetnie sprawdzają się jako przyprawy. Wystarczy kilkadziesiąt minut i obiad gotowy", 20, 28, 24, 89,
                 "łatwe", 549, 1014, 2, "Obiad");
-        //ArrayList<Multimedia> nuddleSalmonMultimedia = new ArrayList<>();
-        Base.getRecepture("Muszle z łososiem").setMultimedia(nuddleSalmonMultimedia);
+
+        //Słodkie pampuchy
+
+        Ingredient yeast = new Ingredient(20, "g", "drożdży w kostce", 0.14);
+        Ingredient flour = new Ingredient(625, "g", "mąki", 1.05);
+        Ingredient egg = new Ingredient(1, "", "jajko", 0.5);
+        Ingredient butter = new Ingredient(2, " łyżki", "roztopionego masła", 0.75);
+        Ingredient salt = new Ingredient(1, " szczypta", "soli", 0.03);
+        Ingredient sugar30 = new Ingredient(2, " łyżki", "cukru", 0.08);
+        Ingredient milk250 = new Ingredient(1, " szklanka", "mleka", 0.7);
+        Ingredient yeast_other = new Ingredient(7, "g", "drożdży sproszkowanych", -1);
+        Ingredient flour_other = new Ingredient(625, "g", "mąki innej, niż pszenna", -1);
+        Ingredient egg_other = new Ingredient(5, "", "jajek przepiórczych", -1);
+        Ingredient margarine = new Ingredient(2, " łyżki", "margaryny", -1);
+        Ingredient oil30 = new Ingredient(2, " łyżki", "oleju", -1);
+        Ingredient sugar_other = new Ingredient(2, " łyżki", "innego cukru (np. trzcinowego)", -1);
+        Ingredient milk_other = new Ingredient(1, " szklanka", "innego mleka (np. koziego)", -1);
+
+        Base.addIngredient(yeast);
+        Base.addIngredient(flour);
+        Base.addIngredient(egg);
+        Base.addIngredient(sugar30);
+        Base.addIngredient(milk250);
+        Base.addIngredient(salt);
+        Base.addIngredient(butter);
+
+        Base.addIngredient(yeast_other);
+        Base.addIngredient(flour_other);
+        Base.addIngredient(egg_other);
+        Base.addIngredient(margarine);
+        Base.addIngredient(oil30);
+        Base.addIngredient(sugar_other);
+        Base.addIngredient(butter);
+        Base.addIngredient(milk_other);
+
+        Base.match("Słodkie pampuchy", yeast);
+        Base.match("Słodkie pampuchy", flour);
+        Base.match("Słodkie pampuchy", egg);
+        Base.match("Słodkie pampuchy", salt);
+        Base.match("Słodkie pampuchy", sugar30);
+        Base.match("Słodkie pampuchy", milk250);
+        Base.match("Słodkie pampuchy", butter);
+
+        Base.setSubstituteForIngredient(yeast, yeast_other);
+        Base.setSubstituteForIngredient(flour, flour_other);
+        Base.setSubstituteForIngredient(egg, egg_other);
+        Base.setSubstituteForIngredient(butter, margarine);
+        Base.setSubstituteForIngredient(butter, oil30);
+        Base.setSubstituteForIngredient(sugar30, sugar_other);
+        Base.setSubstituteForIngredient(milk250, milk_other);
+
+        String[] sweetPapmpuchySteps = new String[]{
+                "Drożdże rozpuszczamy w odrobince ciepłego mleka ze szczyptą mąki i soli. Odstawiam do wyrośnięcia a gdy są już gotowe mieszam je z mąką, resztą mleka, cukrem, jajkiem, rozpuszczonym masłem.",
+                "Wyrabiam ciasto ręką przez chwilę po czym przykrywam ściereczką i odstawiam w cieple miejsce do wyrośnięcia. Po około godzinie z wyrośniętego ciasta formuję okrągłe pyzy - nie za duże bo w trakcie gotowania urosną jeszcze.",
+                "Pyzy pozostawiam jeszcze na trochę czasu do wyrośnięcia. Do garnka (do połowy wysokości) wlewam wodę i zagotowuje ją. Następnie gotuję pyzy na parze na tej wodzie pod przykryciem przez około 7-10 minut.",
+                "Pyzy podaję z serkiem, dżemem, cukrem, cynamonem lub z rozpuszczonym masełkiem - wg upodobania."
+        };
+        Base.addStep(sweetPapmpuchySteps);
+        Base.match("Słodkie pampuchy", sweetPapmpuchySteps);
+        Base.getRecepture("Słodkie pampuchy").setDetails("Przepis na pyzy drożdżowe jest bardzo popularny i dosyć łatwy. Mnie pyzy drożdżowe kojarzą się z dzieciństwem - moja mama często podawała na obiad pyzy na słodko, którymi uwielbiałem się zajadać.", 35, 71, 41, 490, "łatwe", 422, 2611, 2, "Obiad");
+
+        // Zupa pomidorowa
+
+        Ingredient soupVegetables = new Ingredient(20, "dag", "włoszczyzny", 1.5);
+        Ingredient water750 = new Ingredient(750, "ml", "wody", 0.6);
+        //salt
+        Ingredient butter20 = new Ingredient(20, "g", "rozpuszczonego masła", 0.5);
+        Ingredient tomatoes = new Ingredient(60, "dag", "pomidorów", 3.6);
+        Ingredient onion = new Ingredient(10, "dag", "szynki wieprzowej", 0.28);
+        Ingredient flour30 = new Ingredient(3, "dag", "mąki", 0.54);
+        Ingredient cream = new Ingredient(30, "g", "śmietany", 0.27);
+        Ingredient sugarPositive = new Ingredient(1, " szczypta", "cukru", 0.05);
+        Ingredient parsley15 = new Ingredient(15, "g", "posiekanej natki pietruszki", 0.4);
+        Ingredient otherVegetables = new Ingredient(20, "dag", "warzyw, pokrojonych w paski (np. marchewki)", -1);
+        Ingredient margarine20 = new Ingredient(20, "g", "margaryny", -1);
+        Ingredient tomatoPaste = new Ingredient(40, "g", "koncentratu pomidorowego", -1);
+        //garlic
+        Ingredient naturalYogurt = new Ingredient(2, "łyżki", "jogurtu naturalnego", -1);
+        Ingredient flour_other30 = new Ingredient(30, "g", "mąki innej, niż pszenna", -1);
+        Ingredient otherSugar = new Ingredient(1, " szczypta", "cukru innego, niż buraczany", -1);
+        Ingredient chopChives15 = new Ingredient(1, " łyżka", "posiekanego szczypiorku", -1);
+
+        Base.addIngredient(soupVegetables);
+        Base.addIngredient(water750);
+        Base.addIngredient(butter20);
+        Base.addIngredient(tomatoes);
+        Base.addIngredient(onion);
+        Base.addIngredient(flour30);
+        Base.addIngredient(cream);
+        Base.addIngredient(parsley15);
+        Base.addIngredient(sugarPositive);
+
+        Base.addIngredient(otherVegetables);
+        Base.addIngredient(margarine20);
+        Base.addIngredient(tomatoPaste);
+        Base.addIngredient(naturalYogurt);
+        Base.addIngredient(flour_other30);
+        Base.addIngredient(otherSugar);
+        Base.addIngredient(chopChives15);
+
+        Base.setSubstituteForIngredient(soupVegetables, otherVegetables);
+        Base.setSubstituteForIngredient(butter20, margarine20);
+        Base.setSubstituteForIngredient(tomatoes, tomatoPaste);
+        Base.setSubstituteForIngredient(onion, garlic);
+        Base.setSubstituteForIngredient(flour30, flour_other30);
+        Base.setSubstituteForIngredient(cream, naturalYogurt);
+        Base.setSubstituteForIngredient(sugarPositive, otherSugar);
+        Base.setSubstituteForIngredient(chopChives15, parsley15);
+
+        Base.match("Zupa pomidorowa", yeast);
+        Base.match("Zupa pomidorowa", water750);
+        Base.match("Zupa pomidorowa", butter20);
+        Base.match("Zupa pomidorowa", tomatoes);
+        Base.match("Zupa pomidorowa", onion);
+        Base.match("Zupa pomidorowa", flour30);
+        Base.match("Zupa pomidorowa", cream);
+        Base.match("Zupa pomidorowa", parsley15);
+        Base.match("Zupa pomidorowa", sugarPositive);
+        Base.match("Zupa pomidorowa", salt);
+
+        String[] tomatoSoupSteps = new String[]{
+                "Z włoszczyzny ugotować wywar. Pomidory opłukać, podzielić na częścii razem z pokrojoną w krążki cebulą szybko ugotować w małej ilości wody z tłuszczem.",
+                "Przetrzeć przez sito, połączyć z przecedzonym wywarem. Podprawić mąką wymieszaną z 1/8 l zimnej wody.",
+                "Zagotować, dodać śmietanę, przyprawić do smaku solą, cukrem. Dodać zieleninę.",
+                "Podawać z grzankami, pęczakiem, ryżem gotowanym na sypko, z groszkiem ptysiowym, z naleśnikami pokrojonymi na makaron."
+        };
+        Base.addStep(tomatoSoupSteps);
+        Base.match("Zupa pomidorowa", tomatoSoupSteps);
+        Base.getRecepture("Zupa pomidorowa").setDetails(
+                "Zapach domu i wspomnienie dzieciństwa przywodzi na myśl zupa pomidorowa. Przepisy na to danie, nawet jeśli wzbogacone są o zmyślne składniki, zawsze opierają się na jednym, wspólnym elemencie - pomidorach. W sezonie mogą być to pomidory świeże, sparzone i obrane ze skórek, ale równie dobrze możesz użyć koncentrat pomidorowy, dzięki czemu zupę można przygotowywać o każdej porze roku.",
+                80, 13, 22, 53, "łatwe", 490, 453, 3, "Obiad");
 
     }
 
