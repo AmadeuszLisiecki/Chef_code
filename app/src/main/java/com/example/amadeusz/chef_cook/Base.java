@@ -68,7 +68,9 @@ public class Base {
                 }
             }
         }
-        return sum;
+        sum *= 100;
+        sum = Math.round(sum);
+        return (sum /= 100);
     }
 
     public static void addStep(String[] added) {
@@ -142,7 +144,6 @@ public class Base {
         for(int i = 0; i < added.size(); i++) {
             if(added.get(i).getType().equals("Wideo") && i != added.size() - 1) {
                 videoCunter++;
-                //i++;
             }
             else {
                 bitmaps.add(added.get(i).getPhotoBigBitmap());

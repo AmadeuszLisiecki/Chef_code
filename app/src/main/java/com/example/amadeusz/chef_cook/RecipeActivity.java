@@ -1,7 +1,6 @@
 package com.example.amadeusz.chef_cook;
 
 import android.content.Intent;
-import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -180,6 +179,10 @@ public class RecipeActivity extends AppCompatActivity implements NavigationView.
             }
             case "Zupa pomidorowa": {
                 result = service.getStepsPhotosForTomatoSoup();
+                break;
+            }
+            case "Morszczuk zapiekany": {
+                result = service.getStepsPhotosForBakedHake();
             }
         }
         if (result != null) {

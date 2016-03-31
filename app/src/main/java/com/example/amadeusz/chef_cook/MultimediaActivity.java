@@ -83,6 +83,11 @@ public class MultimediaActivity extends AppCompatActivity implements NavigationV
             case "Zupa pomidorowa": {
                 result = service.getWideoForTomatoSoup();
                 getVideoAndPhoto(dishText);
+                return;
+            }
+            case "Morszczuk zapiekany": {
+                result = service.getWideoForBakedHake();
+                getVideoAndPhoto(dishText);
             }
         }
     }
@@ -133,7 +138,6 @@ public class MultimediaActivity extends AppCompatActivity implements NavigationV
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -266,6 +270,9 @@ public class MultimediaActivity extends AppCompatActivity implements NavigationV
             }
             case "Zupa pomidorowa": {
                 return mode.equals("Wideo") ? service.getWideoForTomatoSoup() : service.getPhotosTomatoSoup();
+            }
+            case "Morszczuk zapiekany": {
+                return mode.equals("Wideo") ? service.getWideoForBakedHake() : service.getPhotosBakedHake();
             }
         }
         return null;

@@ -93,11 +93,12 @@ public class MainActivity extends AppCompatActivity
         //rowTree.add(new Row(R.drawable.kissel, "Kisiele", rowTree.get(36), "Kategoria"));
         //rowTree.add(new Row(R.drawable.pudding, "Budynie", rowTree.get(36), "Kategoria"));
         //rowTree.add(new Row(R.drawable.jelly, "Galaretki", rowTree.get(36), "Kategoria"));
-        rowTree.add(new Row(R.drawable.health_food, "Zdrowa żywność", null, "Kategoria"));
-        rowTree.add(new Row(R.drawable.salmo_nuddle, "Muszle z łososiem", rowTree.get(1), "Przepis"));
+        rowTree.add(new Row(R.drawable.health_food, "Zdrowe potrawy", null, "Kategoria"));
+        rowTree.add(new Row(R.drawable.salmo_nuddle, "Muszle z łososiem", rowTree.get(5), "Przepis"));
         rowTree.add(new Row(R.drawable.coconut_stew_with_pineapple, "Kokosowa potrawka z ananasem", rowTree.get(0), "Przepis"));
         rowTree.add(new Row(R.drawable.sweet_pampuchy, "Słodkie pampuchy", rowTree.get(2), "Przepis"));
         rowTree.add(new Row(R.drawable.tomato_soup, "Zupa pomidorowa", rowTree.get(3), "Przepis"));
+        rowTree.add(new Row(R.drawable.baked_hake, "Morszczuk zapiekany", rowTree.get(1), "Przepis"));
         fillDatabase();
         toView = new ArrayList<>();
         parentName = (TextView)findViewById(R.id.parent_text);
@@ -571,6 +572,63 @@ public class MainActivity extends AppCompatActivity
         Base.getRecepture("Zupa pomidorowa").setDetails(
                 "Zapach domu i wspomnienie dzieciństwa przywodzi na myśl zupa pomidorowa. Przepisy na to danie, nawet jeśli wzbogacone są o zmyślne składniki, zawsze opierają się na jednym, wspólnym elemencie - pomidorach. W sezonie mogą być to pomidory świeże, sparzone i obrane ze skórek, ale równie dobrze możesz użyć koncentrat pomidorowy, dzięki czemu zupę można przygotowywać o każdej porze roku.",
                 80, 13, 22, 53, "łatwe", 490, 453, 3, "Obiad");
+
+        // morszczuk zapiekany
+
+        Ingredient coockedPotatoes = new Ingredient(1, "kg", "ugotowanych ziemniaków", 1.5);
+        Ingredient milk125 = new Ingredient(125, "ml", "mleka", 1.5);
+        //salt
+        Ingredient butter70 = new Ingredient(70, "g", "masła", 1.59);
+        Ingredient yolks = new Ingredient(2, "", "żółtka", 1);
+        Ingredient hake = new Ingredient(1, "kg", "morszczuka", 27.35);
+        Ingredient cheese = new Ingredient(120, "g", "startego sera", 1.56);
+
+        Ingredient cocckedRise = new Ingredient(1, "kg", "ugotowanego ryżu", -1);
+        Ingredient milk125_other = new Ingredient(125, "ml", "mleka innego, niż krowie", -1);
+        Ingredient margarine70 = new Ingredient(70, "g", "margaryny", -1);
+        Ingredient other_fish = new Ingredient(1, "kg", "innej ryby", -1);
+        Ingredient cheese_sauce = new Ingredient(120, "ml", "sosu serowego", 1.56);
+
+        Base.addIngredient(coockedPotatoes);
+        Base.addIngredient(milk125);
+        Base.addIngredient(yolks);
+        Base.addIngredient(hake);
+        Base.addIngredient(cheese);
+        Base.addIngredient(butter70);
+
+        Base.addIngredient(cocckedRise);
+        Base.addIngredient(milk125_other);
+        Base.addIngredient(margarine70);
+        Base.addIngredient(other_fish);
+        Base.addIngredient(cheese_sauce);
+
+        Base.setSubstituteForIngredient(coockedPotatoes, cocckedRise);
+        Base.setSubstituteForIngredient(milk125, milk125_other);
+        Base.setSubstituteForIngredient(butter70, margarine70);
+        Base.setSubstituteForIngredient(hake, other_fish);
+        Base.setSubstituteForIngredient(cheese, cheese_sauce);
+
+        Base.match("Morszczuk zapiekany", coockedPotatoes);
+        Base.match("Morszczuk zapiekany", milk125);
+        Base.match("Morszczuk zapiekany", salt);
+        Base.match("Morszczuk zapiekany", yolks);
+        Base.match("Morszczuk zapiekany", hake);
+        Base.match("Morszczuk zapiekany", cheese);
+        Base.match("Morszczuk zapiekany", butter70);
+        Base.match("Morszczuk zapiekany", soupVegetables);
+        Base.match("Morszczuk zapiekany", juiceWithLemon);
+
+
+        String[] backedHakeSteps = new String[]{
+                "Oczyszczone, posolone i skropione sokiem z cytryny ryby udusić z włoszczyzną.",
+                "Utrzeć gęstą masę z obranych i przeciśniętych przez praskę ziemniaków, mleka, soli, 40g masła, 2 żółtek i rozsmarować ją na dnie i na ściankach wysmarowanej masłem żaroodpornej formy.",
+                "Ugotowaną rybę rozdrobnić, ułożyć ją na masie ziemniaczanej, posypać tartym serem i wiórkami z pozostałej części masła.",
+                "Zapiekać 30 minut w temperaturze 120 stopni."
+        };
+        Base.addStep(backedHakeSteps);
+        Base.match("Morszczuk zapiekany", backedHakeSteps);
+        Base.getRecepture("Morszczuk zapiekany").setDetails("Szybka i smaczna potrawa, apetyczna i dietetyczna.", 60, 244, 216, 91, "łatwe", 513, 2658, 5, "Obiad");
+
 
     }
 
