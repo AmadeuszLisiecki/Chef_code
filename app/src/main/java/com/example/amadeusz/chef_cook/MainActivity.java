@@ -99,6 +99,7 @@ public class MainActivity extends AppCompatActivity
         rowTree.add(new Row(R.drawable.sweet_pampuchy, "Słodkie pampuchy", rowTree.get(2), "Przepis"));
         rowTree.add(new Row(R.drawable.tomato_soup, "Zupa pomidorowa", rowTree.get(3), "Przepis"));
         rowTree.add(new Row(R.drawable.baked_hake, "Morszczuk zapiekany", rowTree.get(1), "Przepis"));
+        rowTree.add(new Row(R.drawable.cocoa_buckwheat_pancakes, "Placki gryczane", rowTree.get(7), "Przepis"));
         fillDatabase();
         toView = new ArrayList<>();
         parentName = (TextView)findViewById(R.id.parent_text);
@@ -629,6 +630,53 @@ public class MainActivity extends AppCompatActivity
         Base.match("Morszczuk zapiekany", backedHakeSteps);
         Base.getRecepture("Morszczuk zapiekany").setDetails("Szybka i smaczna potrawa, apetyczna i dietetyczna.", 60, 244, 216, 91, "łatwe", 513, 2658, 5, "Obiad");
 
+        // Gryczane placki
+
+        Ingredient whiteBuckwheat = new Ingredient(100, "g", "białej kaszy gryczanej", 0.6);
+        Ingredient dates = new Ingredient(10, "", "suszonych daktyli", 1.5);
+        Ingredient soy_milk = new Ingredient(125, "ml", "mleka sojowego", 1.7);
+        Ingredient bitter_cocoa = new Ingredient(2, " łyżki", "gorzkiego kakao", 1.4);
+        Ingredient grainSticksWithVanilla = new Ingredient(5, " ziaren", "z laski wanilii", 4);
+
+        Ingredient buckwheat = new Ingredient(100, "g", "palonej kaszy gryczanej", -1);
+        Ingredient raisins = new Ingredient(15, "", "rodzynków", -1);
+        // milk
+        Ingredient cocoa = new Ingredient(2, " łyżki", "zwykłego kakao", -1);
+        Ingredient vaniliaCreamCheese = new Ingredient(30, "g", "serka waniliowego", -1);
+
+        Base.addIngredient(whiteBuckwheat);
+        Base.addIngredient(dates);
+        Base.addIngredient(soy_milk);
+        Base.addIngredient(bitter_cocoa);
+        Base.addIngredient(grainSticksWithVanilla);
+
+        Base.addIngredient(buckwheat);
+        Base.addIngredient(raisins);
+        Base.addIngredient(cocoa);
+        Base.addIngredient(vaniliaCreamCheese);
+
+        Base.setSubstituteForIngredient(whiteBuckwheat, buckwheat);
+        Base.setSubstituteForIngredient(dates, raisins);
+        Base.setSubstituteForIngredient(soy_milk, milk);
+        Base.setSubstituteForIngredient(bitter_cocoa, cocoa);
+        Base.setSubstituteForIngredient(grainSticksWithVanilla, vaniliaCreamCheese);
+
+        Base.match("Placki gryczane", whiteBuckwheat);
+        Base.match("Placki gryczane", dates);
+        Base.match("Placki gryczane", soy_milk);
+        Base.match("Placki gryczane", bitter_cocoa);
+        Base.match("Placki gryczane", grainSticksWithVanilla);
+
+
+        String[] cocoaBuckwheatPancakesSteps = new String[]{
+                "Kaszę zalej na noc gorącą wodą. W drugiej miseczce zalej wodą daktyle.",
+                "Rano odlej wodę, dodaj pozostałe składniki i zmiksuj na gładką masę.",
+                "Nakładaj łyżką porcje ciasta na patelnię delikatnie posmarowaną tłuszczem i smaż z dwóch stron.",
+                "Podawaj z ulubionymi dodatkami (np. owocami, dżemem, orzechami itd.)."
+        };
+        Base.addStep(cocoaBuckwheatPancakesSteps);
+        Base.match("Placki gryczane", cocoaBuckwheatPancakesSteps);
+        Base.getRecepture("Placki gryczane").setDetails("Gryczane placuszki to doskonały pomysł na pożywne śniadanie. Powstają dosyć szybko i równie szybko znikają.", 450, 20, 9, 110, "łatwe", 158, 620, 2, "Śniadanie");
 
     }
 
@@ -666,4 +714,3 @@ public class MainActivity extends AppCompatActivity
         }
     }
 }
-

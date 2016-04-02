@@ -183,6 +183,10 @@ public class RecipeActivity extends AppCompatActivity implements NavigationView.
             }
             case "Morszczuk zapiekany": {
                 result = service.getStepsPhotosForBakedHake();
+                break;
+            }
+            case "Placki gryczane": {
+                result = service.getStepsPhotosForCocoaBuckwheatPancakes();
             }
         }
         if (result != null) {

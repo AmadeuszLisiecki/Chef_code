@@ -88,6 +88,11 @@ public class MultimediaActivity extends AppCompatActivity implements NavigationV
             case "Morszczuk zapiekany": {
                 result = service.getWideoForBakedHake();
                 getVideoAndPhoto(dishText);
+                return;
+            }
+            case "Placki gryczane": {
+                result = service.getPhotosBakedHake();
+                getPhotos();
             }
         }
     }
@@ -274,7 +279,12 @@ public class MultimediaActivity extends AppCompatActivity implements NavigationV
             case "Morszczuk zapiekany": {
                 return mode.equals("Wideo") ? service.getWideoForBakedHake() : service.getPhotosBakedHake();
             }
+            case "Placki gryczane": {
+                return service.getPhotosCocoaBuckwheatPancakes();
+            }
+            default: {
+                return null;
+            }
         }
-        return null;
     }
 }

@@ -48,4 +48,10 @@ public interface Get {
     @GET("/getAll.php?type=ZdjeciaPotraw&receptureName=morszczukZapiekany")
     Call<ResponseBody> getPhotosBakedHake();
 
+    @GET("/getAll.php?type=ZdjeciaEtapow&receptureName=plackiGryczane")
+    Call<ResponseBody> getStepsPhotosForCocoaBuckwheatPancakes();
+
+    @GET("/getAll.php?type=ZdjeciaPotraw&receptureName=plackiGryczane")
+    Call<ResponseBody> getPhotosCocoaBuckwheatPancakes();
+
 }
