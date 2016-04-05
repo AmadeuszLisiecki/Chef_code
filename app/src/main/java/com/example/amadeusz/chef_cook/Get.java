@@ -54,4 +54,13 @@ public interface Get {
     @GET("/getAll.php?type=ZdjeciaPotraw&receptureName=plackiGryczane")
     Call<ResponseBody> getPhotosCocoaBuckwheatPancakes();
 
+    @GET("/getAll.php?type=ZdjeciaEtapow&receptureName=rurkiZKremem")
+    Call<ResponseBody> getStepsPhotosForTubesCream();
+
+    @GET("/getAll.php?type=Wideo&receptureName=rurkiZKremem")
+    Call<ResponseBody> getWideoForTubesCream();
+
+    @GET("/getAll.php?type=ZdjeciaPotraw&receptureName=rurkiZKremem")
+    Call<ResponseBody> getPhotosTubesCream();
+
 }

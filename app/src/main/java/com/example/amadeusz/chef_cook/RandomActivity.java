@@ -51,14 +51,20 @@ public class RandomActivity extends AppCompatActivity implements NavigationView.
 
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
                 switch (pos) {
-                    case 1:
+                    case 1: {
                         timeDay = "Obiad";
                         break;
-                    case 2:
+                    }
+                    case 2: {
                         timeDay = "Kolacja";
                         break;
-                    default:
+                    }
+                    case 3: {
                         timeDay = "Śniadanie";
+                    }
+                    default: {
+                        timeDay = "Deser";
+                    }
                 }
 
             }

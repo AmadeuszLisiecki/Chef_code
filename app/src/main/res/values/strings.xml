@@ -33,6 +33,7 @@
         <item>Śniadanie</item>
         <item>Obiad</item>
         <item>Kolacja</item>
+        <item>Deser</item>
     </string-array>
     <string name="random_button_text">Losuj</string>
     <string name="recpeture_photo">Zdjęcie wylosowanej potrawy</string>

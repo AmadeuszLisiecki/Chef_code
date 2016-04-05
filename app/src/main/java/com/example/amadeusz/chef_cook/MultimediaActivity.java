@@ -93,6 +93,11 @@ public class MultimediaActivity extends AppCompatActivity implements NavigationV
             case "Placki gryczane": {
                 result = service.getPhotosBakedHake();
                 getPhotos();
+                return;
+            }
+            case "Rurki z kremem": {
+                result = service.getWideoForTubesCream();
+                getVideoAndPhoto(dishText);
             }
         }
     }
@@ -281,6 +286,9 @@ public class MultimediaActivity extends AppCompatActivity implements NavigationV
             }
             case "Placki gryczane": {
                 return service.getPhotosCocoaBuckwheatPancakes();
+            }
+            case "Rurki z kremem": {
+                return mode.equals("Wideo") ? service.getWideoForTubesCream() : service.getPhotosTubesCream();
             }
             default: {
                 return null;

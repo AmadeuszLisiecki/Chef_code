@@ -100,6 +100,7 @@ public class MainActivity extends AppCompatActivity
         rowTree.add(new Row(R.drawable.tomato_soup, "Zupa pomidorowa", rowTree.get(3), "Przepis"));
         rowTree.add(new Row(R.drawable.baked_hake, "Morszczuk zapiekany", rowTree.get(1), "Przepis"));
         rowTree.add(new Row(R.drawable.cocoa_buckwheat_pancakes, "Placki gryczane", rowTree.get(7), "Przepis"));
+        rowTree.add(new Row(R.drawable.tube_cream, "Rurki z kremem", rowTree.get(6), "Przepis"));
         fillDatabase();
         toView = new ArrayList<>();
         parentName = (TextView)findViewById(R.id.parent_text);
@@ -667,7 +668,6 @@ public class MainActivity extends AppCompatActivity
         Base.match("Placki gryczane", bitter_cocoa);
         Base.match("Placki gryczane", grainSticksWithVanilla);
 
-
         String[] cocoaBuckwheatPancakesSteps = new String[]{
                 "Kaszę zalej na noc gorącą wodą. W drugiej miseczce zalej wodą daktyle.",
                 "Rano odlej wodę, dodaj pozostałe składniki i zmiksuj na gładką masę.",
@@ -677,6 +677,77 @@ public class MainActivity extends AppCompatActivity
         Base.addStep(cocoaBuckwheatPancakesSteps);
         Base.match("Placki gryczane", cocoaBuckwheatPancakesSteps);
         Base.getRecepture("Placki gryczane").setDetails("Gryczane placuszki to doskonały pomysł na pożywne śniadanie. Powstają dosyć szybko i równie szybko znikają.", 450, 20, 9, 110, "łatwe", 158, 620, 2, "Śniadanie");
+
+
+        // rurki z kremem
+
+        Ingredient flour250 = new Ingredient(1, " szklanka", "mąki luksusowej", 0.6);
+        Ingredient bakingPowder = new Ingredient(1, " łyżeczka", "proszku do pieczenia", 0.13);
+        Ingredient lard = new Ingredient(2, " łyżki", "smalcu", 1);
+        Ingredient butter330 = new Ingredient(330, "g", "masła", 8.25);
+        Ingredient eggs = new Ingredient(3, "", "jajka", 1.5);
+        Ingredient powderedSugar = new Ingredient(375, "g", "cukru pudru", 1.7);
+        Ingredient sourCream = new Ingredient(1, " łyżka", "śmietany", 4);
+        //salt
+        Ingredient rumFlavor = new Ingredient(8, " kropli", "aromatu rumowego", 0.26);
+        Ingredient alcohol = new Ingredient(1, " łyżeczka", "spirytusu", 1);
+
+        Ingredient flour250Other = new Ingredient(1, " szklanka", "innej mąki", -1);
+        Ingredient butter30 = new Ingredient(2, " łyżki", "masła", -1);
+        Ingredient margarine60 = new Ingredient(60, "g", "margaryny", -1);
+        Ingredient sugar375 = new Ingredient(375, "g", "cukru", -1);
+        Ingredient naturalYoughurt = new Ingredient(1, " łyżka", "jogurtu naturalnego", -1);
+        Ingredient rumFlavorOther = new Ingredient(8, " kropli", "innnego aromatu (np. pomarańczowego)", -1);
+        Ingredient whisky = new Ingredient(1, " łyżeczka", "whisky", -1);
+
+        Base.addIngredient(flour250);
+        Base.addIngredient(bakingPowder);
+        Base.addIngredient(lard);
+        Base.addIngredient(butter330);
+        Base.addIngredient(eggs);
+        Base.addIngredient(powderedSugar);
+        Base.addIngredient(sourCream);
+        Base.addIngredient(salt);
+        Base.addIngredient(rumFlavor);
+        Base.addIngredient(alcohol);
+
+        Base.addIngredient(flour250Other);
+        Base.addIngredient(butter30);
+        Base.addIngredient(margarine60);
+        Base.addIngredient(sugar375);
+        Base.addIngredient(naturalYoughurt);
+        Base.addIngredient(rumFlavorOther);
+        Base.addIngredient(whisky);
+
+        Base.setSubstituteForIngredient(flour250, flour250Other);
+        Base.setSubstituteForIngredient(lard, butter30);
+        Base.setSubstituteForIngredient(butter330, margarine60);
+        Base.setSubstituteForIngredient(powderedSugar, sugar375);
+        Base.setSubstituteForIngredient(sourCream, naturalYoughurt);
+        Base.setSubstituteForIngredient(rumFlavor, rumFlavorOther);
+        Base.setSubstituteForIngredient(alcohol, whisky);
+
+        Base.match("Rurki z kremem", flour250);
+        Base.match("Rurki z kremem", bakingPowder);
+        Base.match("Rurki z kremem", lard);
+        Base.match("Rurki z kremem", butter330);
+        Base.match("Rurki z kremem", eggs);
+        Base.match("Rurki z kremem", sourCream);
+        Base.match("Rurki z kremem", salt);
+        Base.match("Rurki z kremem", rumFlavor);
+        Base.match("Rurki z kremem", alcohol);
+        Base.match("Rurki z kremem", powderedSugar);
+
+        String[] tubeCreamSteps = new String[]{
+                "Przesiać mąkę, zmieszać z proszkiem do pieczenia, dodać 2 łyżki masła, smalec, pół szklanki cukru pudru, śmietanę, szczyptę soli i 4 krople aromatu.",
+                "Zarobić ciasto nożem, a następnie szybko zagnieść ręką i wsawić na 30 minut do lodówki.",
+                "Krem maślany: podgrzane w ciepłej wodzie pozostałe jajka ubić z pozostałym cukrem na pulchną masę. Utrzeć pozostałe masło i nie przerywając ucierania dodawać stopniowo masę jajową, spirytus i pozostały aromat.",
+                "Rozwałkować ciasto do grubości 0,5 cm i pokroić nożem na pasy szerokości 2 cm. Pas ciasta ruchem spiralnym nawinąć na metalową tulejkę. Ułożyć rurki na posmarowaną tłuszczem blachę w odstępach 4 cm. Piec w piekarniku ok 10 minut w temperaturze 230 stopni. Następnie wyjąć tulejkę, rurki ostudzić i napełnic kremem z obu stron."
+        };
+        Base.addStep(tubeCreamSteps);
+        Base.match("Rurki z kremem", tubeCreamSteps);
+        Base.getRecepture("Rurki z kremem").setDetails("Są dość czasochłonne w przygotowaniu, ale praca zostaje nagrodzona wspaniałym smakiem. Rurki podobne są w smaku do najlepszych kremówek. Rurki będą idealne na prezent i na karnawałowy stół.", 90, 54, 319, 558, "średnie", 201, 5389, 6, "Deser");
+
 
     }
 
