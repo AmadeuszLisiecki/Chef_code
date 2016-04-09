@@ -101,6 +101,7 @@ public class MainActivity extends AppCompatActivity
         rowTree.add(new Row(R.drawable.baked_hake, "Morszczuk zapiekany", rowTree.get(1), "Przepis"));
         rowTree.add(new Row(R.drawable.cocoa_buckwheat_pancakes, "Placki gryczane", rowTree.get(7), "Przepis"));
         rowTree.add(new Row(R.drawable.tube_cream, "Rurki z kremem", rowTree.get(6), "Przepis"));
+        rowTree.add(new Row(R.drawable.salad_with_sprouts, "Sałatka z kiełkami", rowTree.get(4), "Przepis"));
         fillDatabase();
         toView = new ArrayList<>();
         parentName = (TextView)findViewById(R.id.parent_text);
@@ -212,26 +213,26 @@ public class MainActivity extends AppCompatActivity
 
         // MUSZLE Z ŁOSOSIEM
 
-        Ingredient conchiglioniShells = new Ingredient(20, "", "muszli conchiglioni", 6);
-        Ingredient cannelloniNuddle = new Ingredient(20, "sztuk", "makaronu cannelloni", -1);
-        Ingredient pubescentHam = new Ingredient(120, "g", "szynki dojrzewającej", -1);
-        Ingredient porkHam = new Ingredient(105, "g", "szynki wieprzowej", -1);
-        Ingredient turkeyHam = new Ingredient(300, "g", "szynki z indyka", -1);
-        Ingredient smokedSalmon = new Ingredient(150, "g", "wędzonego łososia", 22.5);
-        Ingredient sandwichCheese = new Ingredient(150, "g", "serka kanapkowego", -1);
-        Ingredient naturalCremeCheese = new Ingredient(150, "g", "serka śmietankowego naturlanego", 2.5);
-        Ingredient pressBanana = new Ingredient(3, "", "zgniecione banany", -1);
-        Ingredient eggsOnHard = new Ingredient(3, "", "jajka ugotowane na twardo", 1.2);
-        Ingredient homogenizedCheese = new Ingredient(4, "łyżeczki", "serka homogenizowanego", -1);
-        Ingredient mayonnaise = new Ingredient(1, " łyżka", "majonezu", 0.3);
-        Ingredient olivies = new Ingredient(1, "łyżeczka", "oliwek", -1);
-        Ingredient mustard = new Ingredient(1, " łyżeczka", "musztardy", 0.05);
-        Ingredient mulveriseMango = new Ingredient(1, "łyżeczka", "sproszkowanego mango", -1);
-        Ingredient juiceWithLemon = new Ingredient(1, " łyżeczka", "soku z cytryny", 0.1);
-        Ingredient garlic = new Ingredient(-1, "", "czosnek", -1);
-        Ingredient saltAndPepper = new Ingredient(-1, "", "sól i pieprz", 0.17);
-        Ingredient parsley = new Ingredient(-1, "", "natka pietruszki", -1);
-        Ingredient chopChives = new Ingredient(-1, "", "posiekany szczypiorek", 0.1);
+        Ingredient conchiglioniShells = new Ingredient("20", "muszli conchiglioni", 6);
+        Ingredient cannelloniNuddle = new Ingredient("20 sztuk", "makaronu cannelloni", -1);
+        Ingredient pubescentHam = new Ingredient("120 g", "szynki dojrzewającej", -1);
+        Ingredient porkHam = new Ingredient("105 g", "szynki wieprzowej", -1);
+        Ingredient turkeyHam = new Ingredient("300 g", "szynki z indyka", -1);
+        Ingredient smokedSalmon = new Ingredient("150 g", "wędzonego łososia", 22.5);
+        Ingredient sandwichCheese = new Ingredient("150 g", "serka kanapkowego", -1);
+        Ingredient naturalCremeCheese = new Ingredient("150 g", "serka śmietankowego naturlanego", 2.5);
+        Ingredient pressBanana = new Ingredient("3", "zgniecione banany", -1);
+        Ingredient eggsOnHard = new Ingredient("3", "jajka ugotowane na twardo", 1.2);
+        Ingredient homogenizedCheese = new Ingredient("4 łyżeczki", "serka homogenizowanego", -1);
+        Ingredient mayonnaise = new Ingredient("łyżka", "majonezu", 0.3);
+        Ingredient olivies = new Ingredient("łyżeczka", "oliwek", -1);
+        Ingredient mustard = new Ingredient("łyżeczka", "musztardy", 0.05);
+        Ingredient mulveriseMango = new Ingredient("łyżeczka", "sproszkowanego mango", -1);
+        Ingredient juiceWithLemon = new Ingredient("łyżeczka", "soku z cytryny", 0.1);
+        Ingredient garlic = new Ingredient("", "czosnek", -1);
+        Ingredient saltAndPepper = new Ingredient("", "sól i pieprz", 0.17);
+        Ingredient parsley = new Ingredient("", "natka pietruszki", -1);
+        Ingredient chopChives = new Ingredient("", "posiekany szczypiorek", 0.1);
         Base.addIngredient(conchiglioniShells);
         Base.addIngredient(cannelloniNuddle);
         Base.addIngredient(pubescentHam);
@@ -324,39 +325,39 @@ public class MainActivity extends AppCompatActivity
 
         // KOKOSOWA POTRAWKA Z ANANASEM
 
-        Ingredient chicken_breast = new Ingredient(1, " pojedyncza", "pierś z kurczaka", 2.1);
-        Ingredient other_meat = new Ingredient(200, "g", "innego mięsa (np. wątróbk, ryby)", -1);
-        Ingredient pineapple = new Ingredient(4, " plastry", "ananasa", 0.12);
-        Ingredient other_fruit = new Ingredient(4, " plastry", "innego owocu (np. jabłka)", -1);
-        Ingredient pineappple_syrup = new Ingredient(83, "ml", "syropu z ananasa", 0.4);
-        Ingredient other_syrup = new Ingredient(83, " ml", "soku lub syropu z innego owocu (np. jabłka)", -1);
-        Ingredient cherry_tomatoes = new Ingredient(6, "", "pomidorków koktajlowych", 1.5);
-        Ingredient tomatoe = new Ingredient(1, "", "pomidor", -1);
-        Ingredient yellow_pepper = new Ingredient(4, " plastry", "żółtej papryki", 0.2);
-        Ingredient other_pepper = new Ingredient(4, " plastry", "innej papryki (np. zielonej)", -1);
-        Ingredient red_pepper = new Ingredient(4, " plastry", "czerwonej papryki", 0.2);
-        Ingredient coconut_milk = new Ingredient(125, "ml", "mleka kokosowego", 7.7);
-        Ingredient milk = new Ingredient(125, " ml", "mleka krowiego", -1);
-        Ingredient water = new Ingredient(125, "ml", "wody", 0.05);
-        Ingredient cocnut_oil = new Ingredient(1, " łyżka", "oleju kokosowego", 1.37);
-        Ingredient oil = new Ingredient(1, " łyżka", "oleju słonecznikowego", -1);
-        Ingredient grape_seed_oil = new Ingredient(2, " łyżki", "oleju z pestek winogron", 1.35);
-        Ingredient oils = new Ingredient(2, " łyżki", "oleju słonecznikowego", -1);
+        Ingredient chicken_breast = new Ingredient("pojedyncza", "pierś z kurczaka", 2.1);
+        Ingredient other_meat = new Ingredient("200 g", "innego mięsa (np. wątróbk, ryby)", -1);
+        Ingredient pineapple = new Ingredient("4 plastry", "ananasa", 0.12);
+        Ingredient other_fruit = new Ingredient("4 plastry", "innego owocu (np. jabłka)", -1);
+        Ingredient pineappple_syrup = new Ingredient("1/3 szklanki", "syropu z ananasa", 0.4);
+        Ingredient other_syrup = new Ingredient("1/3 szklanki", "soku lub syropu z innego owocu (np. jabłka)", -1);
+        Ingredient cherry_tomatoes = new Ingredient("6", "pomidorków koktajlowych", 1.5);
+        Ingredient tomatoe = new Ingredient("1", "pomidor", -1);
+        Ingredient yellow_pepper = new Ingredient("4 plastry", "żółtej papryki", 0.2);
+        Ingredient other_pepper = new Ingredient("4 plastry", "innej papryki (np. zielonej)", -1);
+        Ingredient red_pepper = new Ingredient("4 plastry", "czerwonej papryki", 0.2);
+        Ingredient coconut_milk = new Ingredient("pół szklanki", "mleka kokosowego", 7.7);
+        Ingredient milk = new Ingredient("pół szklanki", "mleka krowiego", -1);
+        Ingredient water = new Ingredient("pół szklanki", "wody", 0.05);
+        Ingredient cocnut_oil = new Ingredient("łyżka", "oleju kokosowego", 1.37);
+        Ingredient oil = new Ingredient("łyżka", "oleju słonecznikowego", -1);
+        Ingredient grape_seed_oil = new Ingredient("2 łyżki", "oleju z pestek winogron", 1.35);
+        Ingredient oils = new Ingredient("2 łyżki", "oleju słonecznikowego", -1);
         // 1 łyżeczka soku z cytryny
-        Ingredient grated_lemon_peel = new Ingredient(1, " szczypta", "utartej skórki z cytryny", 0.34);
-        Ingredient other_citrus = new Ingredient(1, " szczypta", "utartej skórki z innego owoca cytrusowego (np. grapefruita)", -1);
-        Ingredient sugar_cane = new Ingredient(1, " szczypta", "cukru trzcionowego", 0.04);
-        Ingredient badian = new Ingredient(1, "", "badian", 0.2);
-        Ingredient pepper = new Ingredient(1, " szczypta", "pieprzu", -1);
-        Ingredient curry3 = new Ingredient(1, " łyżeczka", "curry", 0.4);
-        Ingredient tropical_fruit_tea = new Ingredient(1, " saszetka", "herbaty o smaku owoców tropikalnych", 0.45);
-        Ingredient other_tea = new Ingredient(1, " saszetka", "innej herbaty", -1);
-        Ingredient peach_mango_tea = new Ingredient(2, " saszetki", "herbaty o smaku brzoskwinia-mango", 0.8);
+        Ingredient grated_lemon_peel = new Ingredient("szczypta", "utartej skórki z cytryny", 0.34);
+        Ingredient other_citrus = new Ingredient("szczypta", "utartej skórki z innego owoca cytrusowego (np. grapefruita)", -1);
+        Ingredient sugar_cane = new Ingredient("szczypta", "cukru trzcionowego", 0.04);
+        Ingredient badian = new Ingredient("", "badian", 0.2);
+        Ingredient pepper = new Ingredient("szczypta", "pieprzu", -1);
+        Ingredient curry3 = new Ingredient("łyżeczka", "curry", 0.4);
+        Ingredient tropical_fruit_tea = new Ingredient("saszetka", "herbaty o smaku owoców tropikalnych", 0.45);
+        Ingredient other_tea = new Ingredient("saszetka", "innej herbaty", -1);
+        Ingredient peach_mango_tea = new Ingredient("2 saszetki", "herbaty o smaku brzoskwinia-mango", 0.8);
         //sól i pieprz
-        Ingredient kafir = new Ingredient(1, " liść", "kafiru", 0.06);
-        Ingredient lemon_peel = new Ingredient(1, "", "kawałek skórki cytryny", -1);
-        Ingredient cut_parsley = new Ingredient(2, " łyżki", "pokrojonej natki pietruszki", 0.42);
-        Ingredient sugar = new Ingredient(1, " szczypta", "cukru buraczanego", -1);
+        Ingredient kafir = new Ingredient("liść", "kafiru", 0.06);
+        Ingredient lemon_peel = new Ingredient("kawałek", "skórki cytryny", -1);
+        Ingredient cut_parsley = new Ingredient("2 łyżki", "pokrojonej natki pietruszki", 0.42);
+        Ingredient sugar = new Ingredient("szczypta", "cukru buraczanego", -1);
         Base.addIngredient(chicken_breast);
         Base.addIngredient(pineapple);
         Base.addIngredient(pineappple_syrup);
@@ -446,20 +447,20 @@ public class MainActivity extends AppCompatActivity
 
         //Słodkie pampuchy
 
-        Ingredient yeast = new Ingredient(20, "g", "drożdży w kostce", 0.14);
-        Ingredient flour = new Ingredient(625, "g", "mąki", 1.05);
-        Ingredient egg = new Ingredient(1, "", "jajko", 0.5);
-        Ingredient butter = new Ingredient(2, " łyżki", "roztopionego masła", 0.75);
-        Ingredient salt = new Ingredient(1, " szczypta", "soli", 0.03);
-        Ingredient sugar30 = new Ingredient(2, " łyżki", "cukru", 0.08);
-        Ingredient milk250 = new Ingredient(1, " szklanka", "mleka", 0.7);
-        Ingredient yeast_other = new Ingredient(7, "g", "drożdży sproszkowanych", -1);
-        Ingredient flour_other = new Ingredient(625, "g", "mąki innej, niż pszenna", -1);
-        Ingredient egg_other = new Ingredient(5, "", "jajek przepiórczych", -1);
-        Ingredient margarine = new Ingredient(2, " łyżki", "margaryny", -1);
-        Ingredient oil30 = new Ingredient(2, " łyżki", "oleju", -1);
-        Ingredient sugar_other = new Ingredient(2, " łyżki", "innego cukru (np. trzcinowego)", -1);
-        Ingredient milk_other = new Ingredient(1, " szklanka", "innego mleka (np. koziego)", -1);
+        Ingredient yeast = new Ingredient("20 g", "drożdży w kostce", 0.14);
+        Ingredient flour = new Ingredient("2,5 szklanki", "mąki", 1.05);
+        Ingredient egg = new Ingredient("", "jajko", 0.5);
+        Ingredient butter = new Ingredient("2 łyżki", "roztopionego masła", 0.75);
+        Ingredient salt = new Ingredient("szczypta", "soli", 0.03);
+        Ingredient sugar30 = new Ingredient("2 łyżki", "cukru", 0.08);
+        Ingredient milk250 = new Ingredient("szklanka", "mleka", 0.7);
+        Ingredient yeast_other = new Ingredient("7 g", "drożdży sproszkowanych", -1);
+        Ingredient flour_other = new Ingredient("2,5 szklanki", "mąki innej, niż pszenna", -1);
+        Ingredient egg_other = new Ingredient("5", "jajek przepiórczych", -1);
+        Ingredient margarine = new Ingredient("2 łyżki", "margaryny", -1);
+        Ingredient oil30 = new Ingredient("2 łyżki", "oleju", -1);
+        Ingredient sugar_other = new Ingredient("2 łyżki", "innego cukru (np. trzcinowego)", -1);
+        Ingredient milk_other = new Ingredient("szklanka", "innego mleka (np. koziego)", -1);
 
         Base.addIngredient(yeast);
         Base.addIngredient(flour);
@@ -506,24 +507,24 @@ public class MainActivity extends AppCompatActivity
 
         // Zupa pomidorowa
 
-        Ingredient soupVegetables = new Ingredient(20, "dag", "włoszczyzny", 1.5);
-        Ingredient water750 = new Ingredient(750, "ml", "wody", 0.6);
+        Ingredient soupVegetables = new Ingredient("20 dag", "włoszczyzny", 1.5);
+        Ingredient water750 = new Ingredient("3 szklanki", "wody", 0.6);
         //salt
-        Ingredient butter20 = new Ingredient(20, "g", "rozpuszczonego masła", 0.5);
-        Ingredient tomatoes = new Ingredient(60, "dag", "pomidorów", 3.6);
-        Ingredient onion = new Ingredient(10, "dag", "szynki wieprzowej", 0.28);
-        Ingredient flour30 = new Ingredient(3, "dag", "mąki", 0.54);
-        Ingredient cream = new Ingredient(30, "g", "śmietany", 0.27);
-        Ingredient sugarPositive = new Ingredient(1, " szczypta", "cukru", 0.05);
-        Ingredient parsley15 = new Ingredient(15, "g", "posiekanej natki pietruszki", 0.4);
-        Ingredient otherVegetables = new Ingredient(20, "dag", "warzyw, pokrojonych w paski (np. marchewki)", -1);
-        Ingredient margarine20 = new Ingredient(20, "g", "margaryny", -1);
-        Ingredient tomatoPaste = new Ingredient(40, "g", "koncentratu pomidorowego", -1);
+        Ingredient butter20 = new Ingredient("20 g", "rozpuszczonego masła", 0.5);
+        Ingredient tomatoes = new Ingredient("60 dag", "pomidorów", 3.6);
+        Ingredient onion = new Ingredient("10 dag", "szynki wieprzowej", 0.28);
+        Ingredient flour30 = new Ingredient("3 dag", "mąki", 0.54);
+        Ingredient cream = new Ingredient("2 łyżki", "śmietany", 0.27);
+        Ingredient sugarPositive = new Ingredient("szczypta", "cukru", 0.05);
+        Ingredient parsley15 = new Ingredient("łyżka", "posiekanej natki pietruszki", 0.4);
+        Ingredient otherVegetables = new Ingredient("20 dag", "warzyw, pokrojonych w paski (np. marchewki)", -1);
+        Ingredient margarine20 = new Ingredient("20 g", "margaryny", -1);
+        Ingredient tomatoPaste = new Ingredient("40 g", "koncentratu pomidorowego", -1);
         //garlic
-        Ingredient naturalYogurt = new Ingredient(2, "łyżki", "jogurtu naturalnego", -1);
-        Ingredient flour_other30 = new Ingredient(30, "g", "mąki innej, niż pszenna", -1);
-        Ingredient otherSugar = new Ingredient(1, " szczypta", "cukru innego, niż buraczany", -1);
-        Ingredient chopChives15 = new Ingredient(1, " łyżka", "posiekanego szczypiorku", -1);
+        Ingredient naturalYogurt = new Ingredient("2 łyżki", "jogurtu naturalnego", -1);
+        Ingredient flour_other30 = new Ingredient("2 łyżki", "mąki innej, niż pszenna", -1);
+        Ingredient otherSugar = new Ingredient("szczypta", "cukru innego, niż buraczany", -1);
+        Ingredient chopChives15 = new Ingredient("łyżka", "posiekanego szczypiorku", -1);
 
         Base.addIngredient(soupVegetables);
         Base.addIngredient(water750);
@@ -577,19 +578,19 @@ public class MainActivity extends AppCompatActivity
 
         // morszczuk zapiekany
 
-        Ingredient coockedPotatoes = new Ingredient(1, "kg", "ugotowanych ziemniaków", 1.5);
-        Ingredient milk125 = new Ingredient(125, "ml", "mleka", 1.5);
+        Ingredient coockedPotatoes = new Ingredient("kg", "ugotowanych ziemniaków", 1.5);
+        Ingredient milk125 = new Ingredient("pół szklanki", "mleka", 1.5);
         //salt
-        Ingredient butter70 = new Ingredient(70, "g", "masła", 1.59);
-        Ingredient yolks = new Ingredient(2, "", "żółtka", 1);
-        Ingredient hake = new Ingredient(1, "kg", "morszczuka", 27.35);
-        Ingredient cheese = new Ingredient(120, "g", "startego sera", 1.56);
+        Ingredient butter70 = new Ingredient("70 g", "masła", 1.59);
+        Ingredient yolks = new Ingredient("2", "żółtka", 1);
+        Ingredient hake = new Ingredient("kg", "morszczuka", 27.35);
+        Ingredient cheese = new Ingredient("8 łyżek", "startego sera", 1.56);
 
-        Ingredient cocckedRise = new Ingredient(1, "kg", "ugotowanego ryżu", -1);
-        Ingredient milk125_other = new Ingredient(125, "ml", "mleka innego, niż krowie", -1);
-        Ingredient margarine70 = new Ingredient(70, "g", "margaryny", -1);
-        Ingredient other_fish = new Ingredient(1, "kg", "innej ryby", -1);
-        Ingredient cheese_sauce = new Ingredient(120, "ml", "sosu serowego", 1.56);
+        Ingredient cocckedRise = new Ingredient("kg", "ugotowanego ryżu", -1);
+        Ingredient milk125_other = new Ingredient("pół szklanki", "mleka innego, niż krowie", -1);
+        Ingredient margarine70 = new Ingredient("70 g", "margaryny", -1);
+        Ingredient other_fish = new Ingredient("kg", "innej ryby", -1);
+        Ingredient cheese_sauce = new Ingredient("8 łyżek", "sosu serowego", 1.56);
 
         Base.addIngredient(coockedPotatoes);
         Base.addIngredient(milk125);
@@ -633,17 +634,17 @@ public class MainActivity extends AppCompatActivity
 
         // Gryczane placki
 
-        Ingredient whiteBuckwheat = new Ingredient(100, "g", "białej kaszy gryczanej", 0.6);
-        Ingredient dates = new Ingredient(10, "", "suszonych daktyli", 1.5);
-        Ingredient soy_milk = new Ingredient(125, "ml", "mleka sojowego", 1.7);
-        Ingredient bitter_cocoa = new Ingredient(2, " łyżki", "gorzkiego kakao", 1.4);
-        Ingredient grainSticksWithVanilla = new Ingredient(5, " ziaren", "z laski wanilii", 4);
+        Ingredient whiteBuckwheat = new Ingredient("100 g", "białej kaszy gryczanej", 0.6);
+        Ingredient dates = new Ingredient("10", "suszonych daktyli", 1.5);
+        Ingredient soy_milk = new Ingredient("pół szklanki", "mleka sojowego", 1.7);
+        Ingredient bitter_cocoa = new Ingredient("2 łyżki", "gorzkiego kakao", 1.4);
+        Ingredient grainSticksWithVanilla = new Ingredient("5 ziaren", "z laski wanilii", 4);
 
-        Ingredient buckwheat = new Ingredient(100, "g", "palonej kaszy gryczanej", -1);
-        Ingredient raisins = new Ingredient(15, "", "rodzynków", -1);
+        Ingredient buckwheat = new Ingredient("100 g", "palonej kaszy gryczanej", -1);
+        Ingredient raisins = new Ingredient("15", "rodzynków", -1);
         // milk
-        Ingredient cocoa = new Ingredient(2, " łyżki", "zwykłego kakao", -1);
-        Ingredient vaniliaCreamCheese = new Ingredient(30, "g", "serka waniliowego", -1);
+        Ingredient cocoa = new Ingredient("2 łyżki", "zwykłego kakao", -1);
+        Ingredient vaniliaCreamCheese = new Ingredient("2 łyżki", "serka waniliowego", -1);
 
         Base.addIngredient(whiteBuckwheat);
         Base.addIngredient(dates);
@@ -681,24 +682,24 @@ public class MainActivity extends AppCompatActivity
 
         // rurki z kremem
 
-        Ingredient flour250 = new Ingredient(1, " szklanka", "mąki luksusowej", 0.6);
-        Ingredient bakingPowder = new Ingredient(1, " łyżeczka", "proszku do pieczenia", 0.13);
-        Ingredient lard = new Ingredient(2, " łyżki", "smalcu", 1);
-        Ingredient butter330 = new Ingredient(330, "g", "masła", 8.25);
-        Ingredient eggs = new Ingredient(3, "", "jajka", 1.5);
-        Ingredient powderedSugar = new Ingredient(375, "g", "cukru pudru", 1.7);
-        Ingredient sourCream = new Ingredient(1, " łyżka", "śmietany", 4);
+        Ingredient flour250 = new Ingredient("szklanka", "mąki luksusowej", 0.6);
+        Ingredient bakingPowder = new Ingredient("łyżeczka", "proszku do pieczenia", 0.13);
+        Ingredient lard = new Ingredient("2 łyżki", "smalcu", 1);
+        Ingredient butter330 = new Ingredient("1 i 1/3 kostki", "masła", 8.25);
+        Ingredient eggs = new Ingredient("3", "jajka", 1.5);
+        Ingredient powderedSugar = new Ingredient("375 g", "cukru pudru", 1.7);
+        Ingredient sourCream = new Ingredient("łyżka", "śmietany", 4);
         //salt
-        Ingredient rumFlavor = new Ingredient(8, " kropli", "aromatu rumowego", 0.26);
-        Ingredient alcohol = new Ingredient(1, " łyżeczka", "spirytusu", 1);
+        Ingredient rumFlavor = new Ingredient("8 kropli", "aromatu rumowego", 0.26);
+        Ingredient alcohol = new Ingredient("łyżeczka", "spirytusu", 1);
 
-        Ingredient flour250Other = new Ingredient(1, " szklanka", "innej mąki", -1);
-        Ingredient butter30 = new Ingredient(2, " łyżki", "masła", -1);
-        Ingredient margarine60 = new Ingredient(60, "g", "margaryny", -1);
-        Ingredient sugar375 = new Ingredient(375, "g", "cukru", -1);
-        Ingredient naturalYoughurt = new Ingredient(1, " łyżka", "jogurtu naturalnego", -1);
-        Ingredient rumFlavorOther = new Ingredient(8, " kropli", "innnego aromatu (np. pomarańczowego)", -1);
-        Ingredient whisky = new Ingredient(1, " łyżeczka", "whisky", -1);
+        Ingredient flour250Other = new Ingredient("szklanka", "innej mąki", -1);
+        Ingredient butter30 = new Ingredient("2 łyżki", "masła", -1);
+        Ingredient margarine60 = new Ingredient("4 łyżki", "margaryny", -1);
+        Ingredient sugar375 = new Ingredient("375 g", "cukru", -1);
+        Ingredient naturalYoughurt = new Ingredient("łyżka", "jogurtu naturalnego", -1);
+        Ingredient rumFlavorOther = new Ingredient("8 kropli", "innnego aromatu (np. pomarańczowego)", -1);
+        Ingredient whisky = new Ingredient("łyżeczka", "whisky", -1);
 
         Base.addIngredient(flour250);
         Base.addIngredient(bakingPowder);
@@ -748,6 +749,91 @@ public class MainActivity extends AppCompatActivity
         Base.match("Rurki z kremem", tubeCreamSteps);
         Base.getRecepture("Rurki z kremem").setDetails("Są dość czasochłonne w przygotowaniu, ale praca zostaje nagrodzona wspaniałym smakiem. Rurki podobne są w smaku do najlepszych kremówek. Rurki będą idealne na prezent i na karnawałowy stół.", 90, 54, 319, 558, "średnie", 201, 5389, 6, "Deser");
 
+        // sałatka z kiełkami
+
+        Ingredient mixedSalad = new Ingredient("3 garście", "mieszanych sałat", 1.5);
+        Ingredient tomatoe0_5 = new Ingredient("0,5", "pomidora", 0.46);
+        Ingredient cucumber = new Ingredient("6 plastrów", "ogórka", 0.18);
+        Ingredient yellowPepper = new Ingredient("1/4", "żółtej papryki", 0.28);
+        Ingredient redPepper = new Ingredient("1/4", "czerwonej papryki", 0.3);
+        Ingredient radischSprouts = new Ingredient("garść", "kiełków rzodkiewki", 1.15);
+        Ingredient eggs2 = new Ingredient("2", "jajka na twardo", 1);
+        Ingredient cookedHam = new Ingredient("2 plastry", "szynki gotowanej", 0.8);
+        Ingredient oil30_2 = new Ingredient("2 łyżki", "oliwy", 0.36);
+        Ingredient vinegar = new Ingredient("0,5 łyżki", "octu winnego", 0.08);
+        Ingredient honey = new Ingredient("0,5 łyżeczki", "miodu", 0.08);
+        Ingredient mustard05 = new Ingredient("0,5 łyżeczki", "musztardy", 0.02);
+
+        Ingredient salad = new Ingredient("3 liście", "sałaty", -1);
+        Ingredient tomatoesSmall = new Ingredient("5", "pomidorów koktajlowych", -1);
+        Ingredient courgette = new Ingredient("6 plastrów", "cukinii", -1);
+        Ingredient otherPepper = new Ingredient("1/4", "innej papryki", -1);
+        Ingredient otherSprouts = new Ingredient("garść", "innych kiełków", -1);
+        Ingredient otherHam = new Ingredient("2 plastry", "innej szynki", -1);
+        Ingredient oil30_2other = new Ingredient("2 łyżki", "oleju", -1);
+        Ingredient vinegarOther = new Ingredient("0,5 łyżki", "innego octu", -1);
+        //sugar
+        Ingredient mayonnaise_2_5 = new Ingredient("0,5 łyżeczki", "majonezu", -1);
+
+        Base.addIngredient(salad);
+        Base.addIngredient(tomatoesSmall);
+        Base.addIngredient(otherPepper);
+        Base.addIngredient(courgette);
+        Base.addIngredient(otherPepper);
+        Base.addIngredient(otherSprouts);
+        Base.addIngredient(otherHam);
+        Base.addIngredient(oil30_2other);
+        Base.addIngredient(vinegarOther);
+        Base.addIngredient(mayonnaise_2_5);
+
+        Base.addIngredient(mixedSalad);
+        Base.addIngredient(tomatoe0_5);
+        Base.addIngredient(cucumber);
+        Base.addIngredient(yellowPepper);
+        Base.addIngredient(redPepper);
+        Base.addIngredient(radischSprouts);
+        Base.addIngredient(eggs2);
+        Base.addIngredient(cookedHam);
+        Base.addIngredient(oil30_2);
+        Base.addIngredient(vinegar);
+        Base.addIngredient(honey);
+        Base.addIngredient(mustard05);
+
+        Base.setSubstituteForIngredient(mixedSalad, salad);
+        Base.setSubstituteForIngredient(tomatoe0_5, tomatoesSmall);
+        Base.setSubstituteForIngredient(cucumber, courgette);
+        Base.setSubstituteForIngredient(yellowPepper, otherPepper);
+        Base.setSubstituteForIngredient(redPepper, otherPepper);
+        Base.setSubstituteForIngredient(radischSprouts, otherSprouts);
+        Base.setSubstituteForIngredient(cookedHam, otherHam);
+        Base.setSubstituteForIngredient(oil30_2, oil30_2other);
+        Base.setSubstituteForIngredient(vinegar, vinegarOther);
+        Base.setSubstituteForIngredient(honey, sugar);
+        Base.setSubstituteForIngredient(mustard05, mayonnaise_2_5);
+
+        Base.match("Sałatka z kiełkami", mixedSalad);
+        Base.match("Sałatka z kiełkami", tomatoe0_5);
+        Base.match("Sałatka z kiełkami", cucumber);
+        Base.match("Sałatka z kiełkami", yellowPepper);
+        Base.match("Sałatka z kiełkami", redPepper);
+        Base.match("Sałatka z kiełkami", radischSprouts);
+        Base.match("Sałatka z kiełkami", eggs2);
+        Base.match("Sałatka z kiełkami", cookedHam);
+        Base.match("Sałatka z kiełkami", oil30_2);
+        Base.match("Sałatka z kiełkami", vinegar);
+        Base.match("Sałatka z kiełkami", honey);
+        Base.match("Sałatka z kiełkami", mustard05);
+        Base.match("Sałatka z kiełkami", saltAndPepper);
+
+        String[] sproutsSaladSteps = new String[]{
+            "Wlać do małego słoiczka oliwę, ocet, miód, musztardę, sól, pieprz. Następnie zakręcić i kilka razy wstrząsnąć, aby składniki się połączyły.",
+            "Na talerze rozłożyć sałatę. Na niej ułożyć półplasterki ogórka, paprykę pokrojoną w paseczki, pomidora pokrojonego na kawałki.",
+            "Szynkę pokroić w szerokie paski, zwinąć i powtykać miedzy warzywa.",
+            "Jajka pokroić w ósemki, ułożyć na sałacie, całość posypać kiełkami rzodkiewki, polać przygotowanym sosem i podawać."
+        };
+        Base.addStep(sproutsSaladSteps);
+        Base.match("Sałatka z kiełkami", sproutsSaladSteps);
+        Base.getRecepture("Sałatka z kiełkami").setDetails("Kiełki można wykorzystać nie tylko do posypywania kanapek, ale i do pysznej sałatki. Jest ona banalnie prosta i bardzo smaczna a przy tym zdrowa. Jej przygotowanie trwa tyle, co ugotowanie jajek na twardo.", 5, 31, 41, 18, "łatwe", 250, 559, 2, "Śniadanie");
 
     }
 

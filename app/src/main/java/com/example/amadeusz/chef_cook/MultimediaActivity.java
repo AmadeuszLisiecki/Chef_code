@@ -98,6 +98,11 @@ public class MultimediaActivity extends AppCompatActivity implements NavigationV
             case "Rurki z kremem": {
                 result = service.getWideoForTubesCream();
                 getVideoAndPhoto(dishText);
+                return;
+            }
+            case "Sała": {
+                result = service.getPhotosBakedHake();
+                getPhotos();
             }
         }
     }
@@ -289,6 +294,9 @@ public class MultimediaActivity extends AppCompatActivity implements NavigationV
             }
             case "Rurki z kremem": {
                 return mode.equals("Wideo") ? service.getWideoForTubesCream() : service.getPhotosTubesCream();
+            }
+            case "Sałatka z kiełkami": {
+                return service.getPhotosSaladWithSprouts();
             }
             default: {
                 return null;

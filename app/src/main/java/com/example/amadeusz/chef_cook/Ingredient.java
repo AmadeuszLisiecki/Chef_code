@@ -4,14 +4,12 @@ import java.util.ArrayList;
 
 public class Ingredient {
 
-    private int value;
     private String meassure;
     private String name;
     private ArrayList<Ingredient> substituties;
     private double price;
 
-    public Ingredient(int value, String meassure, String name, double price) {
-        this.value = value;
+    public Ingredient(String meassure, String name, double price) {
         this.meassure = meassure;
         this.name = name;
         substituties = new ArrayList<>();
@@ -20,7 +18,7 @@ public class Ingredient {
 
     @Override
     public String toString() {
-        return  (value != -1 ? value : "") + meassure + " " + name;
+        return  meassure + " " + name;
     }
 
     public void setSubstituties(ArrayList<Ingredient> substituties) {

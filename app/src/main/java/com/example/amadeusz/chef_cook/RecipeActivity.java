@@ -191,6 +191,11 @@ public class RecipeActivity extends AppCompatActivity implements NavigationView.
             }
             case "Rurki z kremem": {
                 result = service.getStepsPhotosForTubesCream();
+                break;
+            }
+            case "Sałatka z kiełkami": {
+                result = service.getStepsPhotosForSaladWithSprouts();
+                break;
             }
         }
         if (result != null) {
