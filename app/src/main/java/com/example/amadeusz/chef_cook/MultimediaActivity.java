@@ -100,8 +100,8 @@ public class MultimediaActivity extends AppCompatActivity implements NavigationV
                 getVideoAndPhoto(dishText);
                 return;
             }
-            case "Sała": {
-                result = service.getPhotosBakedHake();
+            case "Sałatka z kiełkami": {
+                result = service.getPhotosSaladWithSprouts();
                 getPhotos();
             }
         }
@@ -304,3 +304,4 @@ public class MultimediaActivity extends AppCompatActivity implements NavigationV
         }
     }
 }
+//

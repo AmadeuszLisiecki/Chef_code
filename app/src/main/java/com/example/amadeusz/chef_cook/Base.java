@@ -110,7 +110,7 @@ public class Base {
                 connectedWithTimeDay.add(r);
             }
         }
-        return !connectedWithTimeDay.isEmpty() ? connectedWithTimeDay.get((int)(Math.random() * connectedWithTimeDay.size())) : null;
+        return connectedWithTimeDay.isEmpty() ? null : connectedWithTimeDay.get((int)(Math.random() * connectedWithTimeDay.size()));
     }
 
     public static void addPredictor(Predictor added) {

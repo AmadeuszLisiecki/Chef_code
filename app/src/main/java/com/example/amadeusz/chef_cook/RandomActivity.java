@@ -47,22 +47,24 @@ public class RandomActivity extends AppCompatActivity implements NavigationView.
         spinner.setAdapter(adapter);
         goToRecepture = (Button)findViewById(R.id.go_to_receptue);
         goToRecepture.setVisibility(View.INVISIBLE);
+        timeDay = "Śniadanie";
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
                 switch (pos) {
+                    case 0: {
+                        timeDay = "Śniadanie";
+                        return;
+                    }
                     case 1: {
                         timeDay = "Obiad";
-                        break;
+                        return;
                     }
                     case 2: {
                         timeDay = "Kolacja";
-                        break;
+                        return;
                     }
                     case 3: {
-                        timeDay = "Śniadanie";
-                    }
-                    default: {
                         timeDay = "Deser";
                     }
                 }
@@ -70,7 +72,7 @@ public class RandomActivity extends AppCompatActivity implements NavigationView.
             }
 
             public void onNothingSelected(AdapterView<?> parent) {
-                timeDay = "Śniadanie";
+
             }
 
         });
@@ -103,7 +105,6 @@ public class RandomActivity extends AppCompatActivity implements NavigationView.
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
