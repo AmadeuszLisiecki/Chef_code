@@ -63,7 +63,7 @@ public class MultimediaActivity extends AppCompatActivity implements NavigationV
                 .baseUrl("http://chef.cba.pl")
                 .build();
         service = retrofit.create(Get.class);
-        Toast.makeText(getApplicationContext(), "Poczekaj na pobranie zawartości!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Poczekaj na pobranie zawartości!", Toast.LENGTH_LONG).show();
         switch (dishText) {
             case "Muszle z łososiem": {
                 result = service.getWideoForSalmoNudle();

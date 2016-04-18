@@ -8,7 +8,6 @@ import java.util.Collections;
 
 public class Base {
 
-    private static ArrayList<Row> categories = new ArrayList<>();
     private static ArrayList<ReceptureInBase> receptures = new ArrayList<>();
     private static ArrayList<Ingredient> ingredients = new ArrayList<>();
     private static ArrayList<Predictor> predictors = new ArrayList<>();
@@ -17,12 +16,8 @@ public class Base {
 
     public static void transformRows(ArrayList<Row> added) {
         for (int i = 0; i < added.size(); i++) {
-            if(added.get(i).getType().equals("Kategoria")) {
-                categories.add(added.get(i));
-            }
-            else{
-                receptures.add(new ReceptureInBase(added.get(i).getDescription(), added.get(i).getPictureID(), null, null, null,
-                        added.get(i).getParent(), null));
+            if(added.get(i).getType().equals("Przepis")) {
+                receptures.add(new ReceptureInBase(added.get(i).getDescription(), added.get(i).getPictureID(), null, null, null));
             }
         }
     }

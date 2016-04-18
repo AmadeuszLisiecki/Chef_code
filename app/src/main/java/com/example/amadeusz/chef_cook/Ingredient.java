@@ -21,10 +21,6 @@ public class Ingredient {
         return  meassure + " " + name;
     }
 
-    public void setSubstituties(ArrayList<Ingredient> substituties) {
-        this.substituties = substituties;
-    }
-
     public ArrayList<Ingredient> getSubstituties() {
         return substituties;
     }

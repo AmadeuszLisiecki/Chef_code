@@ -53,7 +53,6 @@ public class PhotoActivity extends Activity {
             ((ImageView) images.get(i)).setImageBitmap(photos.get(i));
             viewFlipper.addView(images.get(i));
         }
-        //Toast.makeText(getApplicationContext(), position + "", Toast.LENGTH_SHORT).show();
         viewFlipper.setDisplayedChild(position);
         Toast.makeText(getApplicationContext(), (recivedPosition + 1) + " / " + (photos.size()), Toast.LENGTH_SHORT).show();
         viewFlipper.setOnTouchListener(new View.OnTouchListener() {
@@ -109,7 +108,7 @@ public class PhotoActivity extends Activity {
                                         }
                                     }
                                 }
-                                Toast.makeText(getApplicationContext(), (position + 1) + " / " + photos.size(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), (position + 1) + " / " + photos.size(), Toast.LENGTH_LONG).show();
                             }
                         });
                 }
