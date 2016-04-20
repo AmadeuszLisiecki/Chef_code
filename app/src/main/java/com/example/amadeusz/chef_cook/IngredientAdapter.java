@@ -16,6 +16,7 @@ public class IngredientAdapter extends ArrayAdapter<Ingredient> {
     private int layoutResourceId;
     private ArrayList<Ingredient> ingredients;
     private String mode;
+    private TextView txtTitle;
 
     public IngredientAdapter(Context context, int layoutResourceId, ArrayList<Ingredient> ingredients, String mode) {
         super(context, layoutResourceId, ingredients);
@@ -28,36 +29,21 @@ public class IngredientAdapter extends ArrayAdapter<Ingredient> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View row = convertView;
-        RowBeanHolder holder;
-
-        if(row == null)
-        {
-            LayoutInflater inflater = ((Activity)context).getLayoutInflater();
+        if(row == null) {
+            LayoutInflater inflater = ((Activity) context).getLayoutInflater();
             row = inflater.inflate(layoutResourceId, parent, false);
-
-            holder = new RowBeanHolder();
-            holder.txtTitle = (TextView)row.findViewById(R.id.ingredient_text);
-
-            row.setTag(holder);
-        }
-        else
-        {
-            holder = (RowBeanHolder)row.getTag();
+            txtTitle = (TextView) row.findViewById(R.id.ingredient_text);
         }
 
         Ingredient object = ingredients.get(position);
         switch(mode) {
-            case "Składniki": holder.txtTitle.setText(object.toString());
+            case "Składniki": txtTitle.setText(object.toString());
                 break;
-            case "Zamienniki": holder.txtTitle.setText(object.showSubstituties());
+            case "Zamienniki": txtTitle.setText(object.showSubstituties());
                 break;
-            default: holder.txtTitle.setText(object.showPrice());
+            default: txtTitle.setText(object.showPrice());
         }
         return row;
     }
 
-    static class RowBeanHolder
-    {
-        TextView txtTitle;
-    }
 }
