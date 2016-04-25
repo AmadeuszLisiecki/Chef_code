@@ -42,17 +42,6 @@ public class AboutAppActivity extends AppCompatActivity implements NavigationVie
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
 

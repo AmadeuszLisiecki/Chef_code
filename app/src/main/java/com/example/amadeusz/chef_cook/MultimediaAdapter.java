@@ -33,4 +33,3 @@ public class MultimediaAdapter extends ArrayAdapter<Multimedia> {
         return convertView;
     }
 }
-

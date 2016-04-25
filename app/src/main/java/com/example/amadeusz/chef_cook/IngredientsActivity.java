@@ -71,20 +71,8 @@ public class IngredientsActivity extends AppCompatActivity implements Navigation
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
-
         Intent swapScreen = null;
         if (id == R.id.random) {
             swapScreen = new Intent(IngredientsActivity.this, RandomActivity.class);
