@@ -279,7 +279,7 @@ public class MainActivity extends AppCompatActivity
                 "Doprawić pastę majonezem, musztardą sokiem z cytryny oraz solą i pieprzem. Ugotowane, ostudzone muszle nadziewać pastą.",
                 "Ułożyć na talerz i posypać szczypiorkiem. Podawać jako przystawkę na zimno na wszelkich przyjęciach."
         };
-        Base.addStep(nuddleSalmonSteps);
+        //Base.addStep(nuddleSalmonSteps);
         Base.match("Muszle z łososiem", nuddleSalmonSteps);
         Base.getRecepture("Muszle z łososiem").setDetails("Dziś pomysł na pyszną przekąskę, która uświetni niejedno przyjęcie w gronie"
                         + " przyjaciół czy rodziny. Idealne na czas karnawału. Muszle przypominają swoim kształtem łódeczki.", 30, 66, 12, 26,
@@ -440,7 +440,7 @@ public class MainActivity extends AppCompatActivity
                 "Dorzucić listek kafiru, curry, kurkumę, skórkę cytrynową, badian, pieprz kolorowy, cukier, sok z ananasa. Zalać wodą i mlekiem kokosowym. Zagotować. Włożyć herbaty. Dusić na małym gazie 20 minut.",
                 "Usunąć saszetki herbaty i listek kafiru. Doprawić do smaku solą , pieprzem i sokiem z cytryny. Pomidorki przekroić na pół i usunąć pestki. Miąższ pokroić w cienkie paski. Wrzucić na patelnię i dusić pod przykryciem 5 minut."
         };
-        Base.addStep(coconutStewWithPineappleSteps);
+        //Base.addStep(coconutStewWithPineappleSteps);
         Base.match("Kokosowa potrawka z ananasem", coconutStewWithPineappleSteps);
         Base.getRecepture("Kokosowa potrawka z ananasem").setDetails("Szybki sposób na tajską potrawkę. Herbaty smakowe świetnie sprawdzają się jako przyprawy. Wystarczy kilkadziesiąt minut i obiad gotowy", 20, 28, 24, 89,
                 "łatwe", 549, 1014, 2, "Obiad");
@@ -501,7 +501,7 @@ public class MainActivity extends AppCompatActivity
                 "Pyzy pozostawiam jeszcze na trochę czasu do wyrośnięcia. Do garnka (do połowy wysokości) wlewam wodę i zagotowuje ją. Następnie gotuję pyzy na parze na tej wodzie pod przykryciem przez około 7-10 minut.",
                 "Pyzy podaję z serkiem, dżemem, cukrem, cynamonem lub z rozpuszczonym masełkiem - wg upodobania."
         };
-        Base.addStep(sweetPapmpuchySteps);
+        //Base.addStep(sweetPapmpuchySteps);
         Base.match("Słodkie pampuchy", sweetPapmpuchySteps);
         Base.getRecepture("Słodkie pampuchy").setDetails("Przepis na pyzy drożdżowe jest bardzo popularny i dosyć łatwy. Mnie pyzy drożdżowe kojarzą się z dzieciństwem - moja mama często podawała na obiad pyzy na słodko, którymi uwielbiałem się zajadać.", 35, 71, 41, 490, "łatwe", 422, 2611, 2, "Obiad");
 
@@ -570,7 +570,7 @@ public class MainActivity extends AppCompatActivity
                 "Zagotować, dodać śmietanę, przyprawić do smaku solą, cukrem. Dodać zieleninę.",
                 "Podawać z grzankami, pęczakiem, ryżem gotowanym na sypko, z groszkiem ptysiowym, z naleśnikami pokrojonymi na makaron."
         };
-        Base.addStep(tomatoSoupSteps);
+       // Base.addStep(tomatoSoupSteps);
         Base.match("Zupa pomidorowa", tomatoSoupSteps);
         Base.getRecepture("Zupa pomidorowa").setDetails(
                 "Zapach domu i wspomnienie dzieciństwa przywodzi na myśl zupa pomidorowa. Przepisy na to danie, nawet jeśli wzbogacone są o zmyślne składniki, zawsze opierają się na jednym, wspólnym elemencie - pomidorach. W sezonie mogą być to pomidory świeże, sparzone i obrane ze skórek, ale równie dobrze możesz użyć koncentrat pomidorowy, dzięki czemu zupę można przygotowywać o każdej porze roku.",
@@ -628,7 +628,7 @@ public class MainActivity extends AppCompatActivity
                 "Ugotowaną rybę rozdrobnić, ułożyć ją na masie ziemniaczanej, posypać tartym serem i wiórkami z pozostałej części masła.",
                 "Zapiekać 30 minut w temperaturze 120 stopni."
         };
-        Base.addStep(backedHakeSteps);
+        //Base.addStep(backedHakeSteps);
         Base.match("Morszczuk zapiekany", backedHakeSteps);
         Base.getRecepture("Morszczuk zapiekany").setDetails("Szybka i smaczna potrawa, apetyczna i dietetyczna.", 60, 244, 216, 91, "łatwe", 513, 2658, 5, "Obiad");
 
@@ -675,7 +675,7 @@ public class MainActivity extends AppCompatActivity
                 "Nakładaj łyżką porcje ciasta na patelnię delikatnie posmarowaną tłuszczem i smaż z dwóch stron.",
                 "Podawaj z ulubionymi dodatkami (np. owocami, dżemem, orzechami itd.)."
         };
-        Base.addStep(cocoaBuckwheatPancakesSteps);
+        //Base.addStep(cocoaBuckwheatPancakesSteps);
         Base.match("Placki gryczane", cocoaBuckwheatPancakesSteps);
         Base.getRecepture("Placki gryczane").setDetails("Gryczane placuszki to doskonały pomysł na pożywne śniadanie. Powstają dosyć szybko i równie szybko znikają.", 450, 20, 9, 110, "łatwe", 158, 620, 2, "Śniadanie");
 
@@ -745,7 +745,7 @@ public class MainActivity extends AppCompatActivity
                 "Krem maślany: podgrzane w ciepłej wodzie pozostałe jajka ubić z pozostałym cukrem na pulchną masę. Utrzeć pozostałe masło i nie przerywając ucierania dodawać stopniowo masę jajową, spirytus i pozostały aromat.",
                 "Rozwałkować ciasto do grubości 0,5 cm i pokroić nożem na pasy szerokości 2 cm. Pas ciasta ruchem spiralnym nawinąć na metalową tulejkę. Ułożyć rurki na posmarowaną tłuszczem blachę w odstępach 4 cm. Piec w piekarniku ok 10 minut w temperaturze 230 stopni. Następnie wyjąć tulejkę, rurki ostudzić i napełnic kremem z obu stron."
         };
-        Base.addStep(tubeCreamSteps);
+        //Base.addStep(tubeCreamSteps);
         Base.match("Rurki z kremem", tubeCreamSteps);
         Base.getRecepture("Rurki z kremem").setDetails("Są dość czasochłonne w przygotowaniu, ale praca zostaje nagrodzona wspaniałym smakiem. Rurki podobne są w smaku do najlepszych kremówek. Rurki będą idealne na prezent i na karnawałowy stół.", 90, 54, 319, 558, "średnie", 201, 5389, 6, "Deser");
 
@@ -831,7 +831,7 @@ public class MainActivity extends AppCompatActivity
             "Szynkę pokroić w szerokie paski, zwinąć i powtykać miedzy warzywa.",
             "Jajka pokroić w ósemki, ułożyć na sałacie, całość posypać kiełkami rzodkiewki, polać przygotowanym sosem i podawać."
         };
-        Base.addStep(sproutsSaladSteps);
+        //Base.addStep(sproutsSaladSteps);
         Base.match("Sałatka z kiełkami", sproutsSaladSteps);
         Base.getRecepture("Sałatka z kiełkami").setDetails("Kiełki można wykorzystać nie tylko do posypywania kanapek, ale i do pysznej sałatki. Jest ona banalnie prosta i bardzo smaczna a przy tym zdrowa. Jej przygotowanie trwa tyle, co ugotowanie jajek na twardo.", 5, 31, 41, 18, "łatwe", 250, 559, 2, "Śniadanie");
 
@@ -851,16 +851,8 @@ public class MainActivity extends AppCompatActivity
             toView.clear();
             for (String word : words) {
                 for (int j = 0; j < receptures.size(); j++) {
-                    switch (word.length()) {
-                        case 1:
-                            if (receptures.get(j).getDescription().contains(word.substring(1))) {
-                                toView.add(receptures.get(j));
-                            }
-                            break;
-                        default:
-                            if (receptures.get(j).getDescription().contains(word.substring(1, Math.min(word.length(), 5)))) {
-                                toView.add(receptures.get(j));
-                            }
+                    if(word.length() > 2 && !toView.contains(receptures.get(j)) && receptures.get(j).getDescription().contains(word.substring(1, Math.min(word.length(), 5)))) {
+                        toView.add(receptures.get(j));
                     }
                 }
             }

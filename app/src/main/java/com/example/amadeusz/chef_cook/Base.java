@@ -68,10 +68,6 @@ public class Base {
         return (sum /= 100);
     }
 
-    public static void addStep(String[] added) {
-        Collections.addAll(Arrays.asList(added));
-    }
-
     public static void match(String receptureName, String[] steps) {
         for(int i = 0; i < receptures.size(); i++) {
             if(receptures.get(i).getName().equals(receptureName)) {
